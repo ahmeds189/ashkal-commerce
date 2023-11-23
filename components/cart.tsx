@@ -9,7 +9,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { formatPrice } from "@/lib/utils";
+import { cn, formatPrice } from "@/lib/utils";
 import { ShoppingBag } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -55,8 +55,10 @@ export default function Cart() {
             <Image
               src="/empty.png"
               alt="empty cart illsturation"
-              width={200}
-              height={0}
+              width="0"
+              height="0"
+              sizes="100vw"
+              className="h-auto w-52"
             />
             <p className="mt-8 text-center text-lg font-semibold">
               Your cart is empty
@@ -64,10 +66,13 @@ export default function Cart() {
             <SheetClose asChild>
               <Link
                 href="products"
-                className={buttonVariants({
-                  variant: "link",
-                  className: "w-full text-blue-500",
-                })}
+                className={cn(
+                  buttonVariants({
+                    variant: "link",
+                    className: "w-full",
+                  }),
+                  "text-blue-600",
+                )}
               >
                 Add items to your carts to checkout
               </Link>
