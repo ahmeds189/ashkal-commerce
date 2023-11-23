@@ -2,6 +2,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Shapes } from "lucide-react";
 import Link from "next/link";
+import SignupForm from "../_components/sign-up-form";
 
 export default function SigninPage() {
   return (
@@ -20,6 +21,7 @@ export default function SigninPage() {
       >
         sign-in if you already have an account
       </Link>
+      <SignupForm />
     </div>
   );
 }
