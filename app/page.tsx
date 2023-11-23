@@ -1,31 +1,10 @@
 import { buttonVariants } from "@/components/ui/button";
-import { ArrowDownToLine, CheckCircle, Leaf } from "lucide-react";
 import Link from "next/link";
+import { perks } from "@/lib/constants";
 
-const perks = [
-  {
-    name: "Instant Delivery",
-    details:
-      "Get your assets deliverd to your email in seconds and download them right away.",
-    icon: ArrowDownToLine,
-  },
-  {
-    name: "Guaranted Quality",
-    details:
-      "Every asset on our platform is verified by our team to ensure our highest quality standards.",
-    icon: CheckCircle,
-  },
-  {
-    name: "For the planet",
-    details:
-      "we've put 1% of seals to the presservation and restoration of the the natural enviroment.",
-    icon: Leaf,
-  },
-];
-
-export default function Home() {
+export default function HomePage() {
   return (
-    <>
+    <div className="flex flex-col text-center">
       <div className="container mb-4 flex-1 py-16">
         <h1 className="mx-auto mb-6 max-w-lg text-4xl font-bold tracking-tight">
           Your marketplace for heigh quality&nbsp;
@@ -57,6 +36,6 @@ export default function Home() {
           ))}
         </ul>
       </section>
-    </>
+    </div>
   );
 }

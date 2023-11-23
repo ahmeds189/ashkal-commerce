@@ -24,7 +24,7 @@ export default function Navbar() {
               </li>
               <li>
                 <Link
-                  href="/"
+                  href="/sign-up"
                   className={buttonVariants({ size: "sm", variant: "ghost" })}
                 >
                   Create account

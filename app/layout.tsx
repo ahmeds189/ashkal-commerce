@@ -1,9 +1,9 @@
 import { type PropsWithChildren } from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
 import Navbar from "@/components/navbar";
 import { cn } from "@/lib/utils";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +17,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <html lang="en" className="dark">
       <body className={cn(inter.className, "flex min-h-screen flex-col")}>
         <Navbar />
-        <main className="flex flex-1 flex-col text-center">{children}</main>
+        <main className="flex-1">{children}</main>
       </body>
     </html>
   );

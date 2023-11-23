@@ -69,7 +69,7 @@ export default function Cart() {
                 className={cn(
                   buttonVariants({
                     variant: "link",
-                    className: "w-full",
+                    size: "sm",
                   }),
                   "text-blue-600",
                 )}
