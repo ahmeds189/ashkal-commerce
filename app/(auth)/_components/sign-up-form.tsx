@@ -23,7 +23,10 @@ export default function SignupForm() {
   };
 
   return (
-    <form className="max-w-sm space-y-3" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="mx-auto max-w-sm space-y-3 text-start"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <div>
         <Label>Email</Label>
         <Input
