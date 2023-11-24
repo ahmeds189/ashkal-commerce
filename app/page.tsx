@@ -4,7 +4,7 @@ import { perks } from "@/lib/constants";
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col text-center">
+    <div className="text-center">
       <div className="container mb-4 flex-1 py-16">
         <h1 className="mx-auto mb-6 max-w-lg text-4xl font-bold tracking-tight">
           Your marketplace for heigh quality&nbsp;

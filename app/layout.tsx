@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import Navbar from "@/components/navbar";
 import { cn } from "@/lib/utils";
 import "./globals.css";
+import Providers from "@/components/providers";
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,8 +18,11 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" className="dark">
       <body className={cn(inter.className, "flex min-h-screen flex-col")}>
-        <Navbar />
-        <main className="flex-1">{children}</main>
+        <Providers>
+          <Toaster richColors position="top-center" />
+          <Navbar />
+          <main className="flex-1">{children}</main>
+        </Providers>
       </body>
     </html>
   );
