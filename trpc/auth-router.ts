@@ -8,8 +8,7 @@ export const authRouter = router({
   // sign up route
   createPayloadUser: publicProcedure
     .input(AuthSchema)
-    .mutation(async ({ input }) => {
-      const { email, password } = input;
+    .mutation(async ({ input: { email, password } }) => {
       const payload = await getPayloadClient();
 
       // check if user already exists
@@ -47,5 +46,24 @@ export const authRouter = router({
       if (!isVerified) throw new TRPCError({ code: "UNAUTHORIZED" });
 
       return { success: true };
+    }),
+
+  // user login route
+  signinUser: publicProcedure
+    .input(AuthSchema)
+    .mutation(async ({ input: { email, password }, ctx }) => {
+      const { res } = ctx;
+      const payload = await getPayloadClient();
+
+      try {
+        await payload.login({
+          collection: "users",
+          data: { email, password },
+          res,
+        });
+        return { success: true };
+      } catch (error) {
+        throw new TRPCError({ code: "UNAUTHORIZED" });
+      }
     }),
 });

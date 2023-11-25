@@ -1,10 +1,13 @@
-import { Shapes, ShoppingBag } from "lucide-react";
+import { Shapes } from "lucide-react";
 import Link from "next/link";
-import { Button, buttonVariants } from "./ui/button";
+import { buttonVariants } from "./ui/button";
 import Cart from "./cart";
+import { getUserSessionInfo } from "@/lib/utils";
+import { cookies } from "next/headers";
 
-export default function Navbar() {
-  const user = null;
+export default async function Navbar() {
+  const nextCookies = cookies();
+  const { user } = await getUserSessionInfo(nextCookies);
   return (
     <nav className="sticky inset-0 z-50 py-3.5 shadow-sm backdrop-blur-md">
       <div className="container flex items-center">
@@ -16,7 +19,7 @@ export default function Navbar() {
             <>
               <li>
                 <Link
-                  href="/"
+                  href="/sign-in"
                   className={buttonVariants({ size: "sm", variant: "ghost" })}
                 >
                   Sign in

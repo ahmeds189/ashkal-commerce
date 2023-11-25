@@ -1,15 +1,16 @@
+/* eslint-disable react/no-unescaped-entities */
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Shapes } from "lucide-react";
 import Link from "next/link";
-import SignupForm from "../_components/sign-up-form";
+import SigninForm from "../_components/sign-in-form";
 
-export default function SignupPage() {
+export default function SigninPage() {
   return (
     <div className="container pt-20 text-center">
       <Shapes className="mb-5 inline-block" size={60} />
 
-      <h1 className="text-2xl font-bold">Create an account</h1>
+      <h1 className="text-2xl font-bold">Sign in to your account</h1>
       <Link
         href="sign-in"
         className={cn(
@@ -20,9 +21,9 @@ export default function SignupPage() {
           "mb-8 p-0 text-blue-500",
         )}
       >
-        sign-in if you already have an account
+        sign-up if you don't have an account
       </Link>
-      <SignupForm />
+      <SigninForm />
     </div>
   );
 }

@@ -23,21 +23,23 @@ export default function SignupForm() {
   });
   const router = useRouter();
 
-  const { mutate, isLoading } = trpc.auth.createPayloadUser.useMutation({
-    onError: (err) => {
-      if (err.data?.code === "CONFLICT") {
-        return toast.error("This email already signed up, sign in instade!");
-      }
-      return toast.error("Something went wrong, please try again");
+  const { mutate: signUp, isLoading } = trpc.auth.createPayloadUser.useMutation(
+    {
+      onError: (err) => {
+        if (err.data?.code === "CONFLICT") {
+          return toast.error("This email already signed up, sign in instade!");
+        }
+        return toast.error("Something went wrong, please try again");
+      },
+      onSuccess: ({ sentToEmail }) => {
+        toast.success(`verification email sent to ${sentToEmail}`);
+        router.push(`/verify-email?to=${sentToEmail}`);
+      },
     },
-    onSuccess: ({ sentToEmail }) => {
-      toast.success(`verification email sent to ${sentToEmail}`);
-      router.push(`/verify-email?to=${sentToEmail}`);
-    },
-  });
+  );
 
   const onSubmit = ({ email, password }: AuthSchemaTypes) => {
-    mutate({ email, password });
+    signUp({ email, password });
   };
 
   return (
