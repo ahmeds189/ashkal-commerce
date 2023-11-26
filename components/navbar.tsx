@@ -4,18 +4,26 @@ import { buttonVariants } from "./ui/button";
 import Cart from "./cart";
 import { getUserSessionInfo } from "@/lib/utils";
 import { cookies } from "next/headers";
+import UserProfile from "./user-profile";
 
 export default async function Navbar() {
   const nextCookies = cookies();
   const { user } = await getUserSessionInfo(nextCookies);
+
+  if (user) {
+    console.log(user);
+  }
+
   return (
-    <nav className="sticky inset-0 z-50 py-3.5 shadow-sm backdrop-blur-md">
+    <nav className="sticky inset-0 z-50 py-3.5 shadow-sm backdrop-blur-md dark:border-b">
       <div className="container flex items-center">
         <Link href="/" className="mr-auto">
           <Shapes className="block" size={38} />
         </Link>
         <ul className="flex items-center gap-2">
-          {!user ? (
+          {user ? (
+            <UserProfile user={user} />
+          ) : (
             <>
               <li>
                 <Link
@@ -34,7 +42,7 @@ export default async function Navbar() {
                 </Link>
               </li>
             </>
-          ) : null}
+          )}
         </ul>
 
         <Cart />
