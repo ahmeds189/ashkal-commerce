@@ -23,7 +23,7 @@ export default function UserProfile({ user }: { user: User }) {
           <UserIcon size={27} />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="mb-1 mr-5">
+      <DropdownMenuContent className="mr-5 mt-4">
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem className="text-xm">{user.email}</DropdownMenuItem>
