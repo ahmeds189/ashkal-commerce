@@ -53,6 +53,7 @@ const ownOrPurchased: Access = async ({ req }) => {
 
 export const Files: CollectionConfig = {
   slug: "product_files",
+  labels: { plural: "Files", singular: "File" },
   admin: {
     hidden: ({ user }) => user.role !== "admin",
   },
