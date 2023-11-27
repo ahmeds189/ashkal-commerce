@@ -6,7 +6,7 @@ import ProductReel from "@/components/product-reel";
 export default function HomePage() {
   return (
     <div className="text-center">
-      <div className="container mb-4 flex-1 py-16">
+      <div className="container relative py-16">
         <h1 className="mx-auto mb-6 max-w-lg text-4xl font-bold tracking-tight">
           Your marketplace for heigh quality&nbsp;
           <span className="text-blue-600">digital assets.</span>
@@ -21,8 +21,17 @@ export default function HomePage() {
         >
           Browse Trending
         </Link>
+
+        <span className="absolute inset-0 -z-50 h-64 w-64 bg-gradient-to-r from-blue-600 to-violet-700 opacity-10 blur-3xl"></span>
+        <span className="absolute right-0 -z-50 h-64 w-64 bg-gradient-to-r from-blue-600 to-violet-700 opacity-10 blur-3xl"></span>
       </div>
-      <ProductReel title="Test" href="/" query={{ sort: "desc", limit: 4 }} />
+
+      <ProductReel
+        href="/"
+        title="UI Kits"
+        query={{ sort: "desc", limit: 4 }}
+      />
+
       <section className="border-t bg-muted/20 py-16">
         <ul className="container flex flex-col flex-wrap gap-8 sm:flex-row">
           {perks.map((perk) => (
