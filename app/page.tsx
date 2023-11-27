@@ -1,6 +1,7 @@
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { perks } from "@/lib/constants";
+import ProductReel from "@/components/product-reel";
 
 export default function HomePage() {
   return (
@@ -21,6 +22,7 @@ export default function HomePage() {
           Browse Trending
         </Link>
       </div>
+      <ProductReel title="Test" href="/" query={{ sort: "desc", limit: 4 }} />
       <section className="border-t bg-muted/20 py-16">
         <ul className="container flex flex-col flex-wrap gap-8 sm:flex-row">
           {perks.map((perk) => (

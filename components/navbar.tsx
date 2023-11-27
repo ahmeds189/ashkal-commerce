@@ -10,10 +10,6 @@ export default async function Navbar() {
   const nextCookies = cookies();
   const { user } = await getUserSessionInfo(nextCookies);
 
-  if (user) {
-    console.log(user);
-  }
-
   return (
     <nav className="sticky inset-0 z-50 py-3.5 shadow-sm backdrop-blur-md dark:border-b">
       <div className="container flex items-center">
