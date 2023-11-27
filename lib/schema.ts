@@ -8,3 +8,11 @@ export const AuthSchema = z.object({
 });
 
 export type AuthSchemaTypes = z.infer<typeof AuthSchema>;
+
+export const ProductQuery = z.object({
+  category: z.string().optional(),
+  sort: z.enum(["asc", "desc"]).optional(),
+  limit: z.number().optional(),
+});
+
+export type ProductQueryTypes = z.infer<typeof ProductQuery>;
