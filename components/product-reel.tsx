@@ -1,6 +1,8 @@
 "use client";
 import { ProductQueryTypes } from "@/lib/schema";
+import { Product } from "@/server/payload-types";
 import { trpc } from "@/trpc/client";
+import ProductCard from "./product-card";
 
 type Props = {
   title: string;
@@ -11,20 +13,31 @@ type Props = {
 
 export default function ProductReel(props: Props) {
   const { query, title } = props;
-  const { data } = trpc.getInfiniteProducts.useInfiniteQuery(
+  const { data, isLoading } = trpc.getInfiniteProducts.useInfiniteQuery(
     {
       limit: query.limit ?? 4,
       query,
     },
     { getNextPageParam: (lastPage) => lastPage.nextPage },
   );
-  console.log(data);
+
+  const products = data?.pages.flatMap((page) => page.items);
+  let mapedProducts: (Product | null)[] = [];
+
+  if (products && products.length) {
+    mapedProducts = products;
+  } else if (isLoading) {
+    mapedProducts = new Array<null>(query.limit ?? 4).fill(null);
+  }
 
   return (
-    <section>
-      <header>
-        <h1>{title}</h1>
-      </header>
+    <section className="container space-y-6 py-16 text-start">
+      <h1 className="text-2xl font-bold">{title}</h1>
+      <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+        {mapedProducts.map((product, i) => (
+          <ProductCard product={product} index={i} key={i} />
+        ))}
+      </div>
     </section>
   );
 }
