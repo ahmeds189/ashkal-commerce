@@ -74,3 +74,12 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* swiper bullets */
+.swiper-pagination-bullet {
+  @apply !h-2 !w-2 scale-90 !bg-accent-foreground;
+}
+
+.swiper-pagination-bullet-active {
+  @apply scale-100 !bg-white;
+}

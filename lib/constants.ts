@@ -1,6 +1,6 @@
 import { ArrowDownToLine, CheckCircle, Leaf } from "lucide-react";
 
-export const perks = [
+export const overview = [
   {
     name: "Instant Delivery",
     details:

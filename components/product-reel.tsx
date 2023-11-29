@@ -31,9 +31,9 @@ export default function ProductReel(props: Props) {
   }
 
   return (
-    <section className="container space-y-6 py-16 text-start">
+    <section className="container space-y-6 py-20 text-start">
       <h1 className="text-2xl font-bold">{title}</h1>
-      <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(12rem,1fr))] gap-x-4 gap-y-8 md:gap-x-6">
         {mapedProducts.map((product, i) => (
           <ProductCard product={product} index={i} key={i} />
         ))}
