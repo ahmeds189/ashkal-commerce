@@ -117,6 +117,12 @@ export const Products: CollectionConfig = {
       required: true,
     },
     {
+      name: "credit",
+      label: "Credit",
+      type: "textarea",
+      required: false,
+    },
+    {
       name: "price",
       label: "Price",
       type: "number",

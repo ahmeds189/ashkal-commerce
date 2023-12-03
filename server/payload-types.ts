@@ -39,8 +39,9 @@ export interface Product {
   user?: (string | null) | User;
   name: string;
   description: string;
+  credit?: string | null;
   price: number;
-  category: 'ui_kits' | 'icons';
+  category: 'ui_kits' | 'icons' | 'illustration' | 'wallpapers';
   product_files: string | ProductFile;
   approvedForSale?: ('pending' | 'approved' | 'rejected') | null;
   priceId?: string | null;
