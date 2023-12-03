@@ -12,7 +12,13 @@ import { Button } from "./ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export default function ImageSlider({ urls }: { urls: string[] }) {
+export default function ImageSlider({
+  urls,
+  className = "aspect-square",
+}: {
+  urls: string[];
+  className: string;
+}) {
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
   const [active, setActive] = useState(0);
   const [slideConfig, setSlideConfig] = useState({
@@ -41,7 +47,7 @@ export default function ImageSlider({ urls }: { urls: string[] }) {
             swiper?.slidePrev();
           }}
           className={cn(
-            "h-8 w-8 rounded-full opacity-0 transition group-hover:opacity-100",
+            "h-8 w-8 rounded-full border opacity-0 transition group-hover:opacity-100",
             slideConfig.isBeginning && "invisible",
           )}
         >
@@ -55,7 +61,7 @@ export default function ImageSlider({ urls }: { urls: string[] }) {
             swiper?.slideNext();
           }}
           className={cn(
-            "h-8 w-8 rounded-full opacity-0 transition group-hover:opacity-100",
+            "h-8 w-8 rounded-full border opacity-0 transition group-hover:opacity-100",
             slideConfig.isEnd && "invisible",
           )}
         >
@@ -74,14 +80,15 @@ export default function ImageSlider({ urls }: { urls: string[] }) {
         }}
       >
         {urls.map((url, i) => (
-          <SwiperSlide key={i} className="relative aspect-square">
+          <SwiperSlide key={i} className={`relative ${className}`}>
             <Image
               src={url}
-              fill
-              priority
-              loading="eager"
               alt="product image"
-              className="rounded-xl object-cover"
+              fill
+              loading="eager"
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="rounded-xl object-cover object-left"
             />
           </SwiperSlide>
         ))}

@@ -12,7 +12,7 @@ export default async function Navbar() {
 
   return (
     <nav className="sticky inset-0 z-50 py-3.5 shadow-sm backdrop-blur-md dark:border-b">
-      <div className="container flex items-center">
+      <div className="container flex items-center gap-2">
         <Link href="/" className="mr-auto">
           <Shapes className="block" size={38} />
         </Link>

@@ -51,28 +51,20 @@ export default function Cart() {
             </SheetClose>
           </div>
         ) : (
-          <div className="flex flex-1 flex-col items-center justify-center">
+          <div className="flex-1 space-y-3 py-20 text-center">
             <Image
               src="/empty.png"
               alt="empty cart illsturation"
-              width="0"
-              height="0"
-              sizes="100vw"
-              className="h-auto w-52"
+              width={200}
+              height={200}
+              loading="lazy"
+              className="inline-block aspect-square object-contain"
             />
-            <p className="mt-8 text-center text-lg font-semibold">
-              Your cart is empty
-            </p>
+            <p className="text-lg font-semibold">Your cart is empty</p>
             <SheetClose asChild>
               <Link
-                href="products"
-                className={cn(
-                  buttonVariants({
-                    variant: "link",
-                    size: "sm",
-                  }),
-                  "text-blue-600",
-                )}
+                href="/products"
+                className="block text-sm text-blue-500 underline-offset-4 hover:underline"
               >
                 Add items to your carts to checkout
               </Link>

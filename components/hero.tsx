@@ -8,7 +8,7 @@ export default function Hero() {
         Your marketplace for heigh quality&nbsp;
         <span className="text-blue-600">digital assets.</span>
       </h1>
-      <p className="mx-auto mb-5 max-w-sm text-muted-foreground">
+      <p className="mx-auto mb-8 max-w-sm text-muted-foreground">
         Welcome to AssetsSquare, every asset on our platform is verified by our
         team to ensure our highest quality standards.
       </p>

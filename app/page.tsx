@@ -8,7 +8,7 @@ export default function HomePage() {
       <Hero />
       <ProductReel
         href="/"
-        title="Hot Deals"
+        title="Featured products"
         query={{ sort: "desc", limit: 4 }}
       />
       <Overview />

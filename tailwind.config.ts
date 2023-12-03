@@ -10,13 +10,11 @@ module.exports = {
         DEFAULT: "60rem",
       },
     },
-    screens: {
-      sm: "450px",
-      md: "750px",
-      lg: "1050px",
-      xl: "1350px",
-    },
     extend: {
+      screens: {
+        sm: "480px",
+        md: "780px",
+      },
       minHeight: {
         screen: "100svh",
       },
