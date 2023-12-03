@@ -2,7 +2,7 @@
 
 import { type PropsWithChildren, useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { trpc } from "@/trpc/client";
+import { trpc } from "@/server/trpc/client";
 import { httpBatchLink } from "@trpc/client";
 
 export default function Providers({ children }: PropsWithChildren) {

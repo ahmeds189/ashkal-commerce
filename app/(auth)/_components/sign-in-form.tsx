@@ -8,7 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import ErrorMessage from "./error-message";
 import { cn } from "@/lib/utils";
-import { trpc } from "@/trpc/client";
+import { trpc } from "@/server/trpc/client";
 import { LoaderIcon } from "lucide-react";
 import { toast } from "sonner";
 import { useRouter, useSearchParams } from "next/navigation";

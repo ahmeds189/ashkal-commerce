@@ -43,6 +43,48 @@ export const PRODUCT_CATEGORIES = [
       },
     ],
   },
+  {
+    label: "Illustration",
+    value: "illustration" as const,
+    featured: [
+      {
+        name: "Favorite Illustration Picks",
+        href: `/products?category=illustrations`,
+        imageSrc: "/nav/icons/picks.jpg",
+      },
+      {
+        name: "New Arrivals",
+        href: "/products?category=illustrations&sort=desc",
+        imageSrc: "/nav/icons/new.jpg",
+      },
+      {
+        name: "Bestselling Illustration",
+        href: "/products?category=illustrations",
+        imageSrc: "/nav/icons/bestsellers.jpg",
+      },
+    ],
+  },
+  {
+    label: "Wallpapers",
+    value: "wallpapers" as const,
+    featured: [
+      {
+        name: "Favorite Wallpapers",
+        href: `/products?category=wallpapers`,
+        imageSrc: "/nav/icons/picks.jpg",
+      },
+      {
+        name: "New Arrivals",
+        href: "/products?category=wallpapers&sort=desc",
+        imageSrc: "/nav/icons/new.jpg",
+      },
+      {
+        name: "Bestselling Wallpapers",
+        href: "/products?category=wallpapers",
+        imageSrc: "/nav/icons/bestsellers.jpg",
+      },
+    ],
+  },
 ];
 
 export const Products: CollectionConfig = {

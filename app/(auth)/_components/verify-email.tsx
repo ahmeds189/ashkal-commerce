@@ -2,7 +2,7 @@
 "use client";
 
 import { buttonVariants } from "@/components/ui/button";
-import { trpc } from "@/trpc/client";
+import { trpc } from "@/server/trpc/client";
 import { Loader } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";

@@ -10,6 +10,12 @@ module.exports = {
         DEFAULT: "60rem",
       },
     },
+    screens: {
+      sm: "450px",
+      md: "750px",
+      lg: "1050px",
+      xl: "1350px",
+    },
     extend: {
       minHeight: {
         screen: "100svh",

@@ -77,7 +77,7 @@
 
 /* swiper bullets */
 .swiper-pagination-bullet {
-  @apply !h-2 !w-2 scale-90 !bg-accent-foreground;
+  @apply !h-2 !w-2 scale-90 !bg-white/30 !opacity-0 group-hover:!opacity-100;
 }
 
 .swiper-pagination-bullet-active {

@@ -31,7 +31,7 @@ export default function ImageSlider({ urls }: { urls: string[] }) {
   }, [swiper, urls]);
 
   return (
-    <div className="relative">
+    <div className="group relative">
       <div className="absolute inset-0 z-10 flex h-full w-full items-center justify-between px-1">
         <Button
           aria-label="previous image"
@@ -41,7 +41,7 @@ export default function ImageSlider({ urls }: { urls: string[] }) {
             swiper?.slidePrev();
           }}
           className={cn(
-            "h-8 w-8 rounded-full",
+            "h-8 w-8 rounded-full opacity-0 transition group-hover:opacity-100",
             slideConfig.isBeginning && "invisible",
           )}
         >
@@ -55,7 +55,7 @@ export default function ImageSlider({ urls }: { urls: string[] }) {
             swiper?.slideNext();
           }}
           className={cn(
-            "h-8 w-8 rounded-full",
+            "h-8 w-8 rounded-full opacity-0 transition group-hover:opacity-100",
             slideConfig.isEnd && "invisible",
           )}
         >
@@ -68,20 +68,20 @@ export default function ImageSlider({ urls }: { urls: string[] }) {
         spaceBetween={50}
         modules={[Pagination]}
         pagination={{
+          clickable: true,
           renderBullet: (_, className) =>
             `<span class="rounded-full transition ${className}"></span>`,
         }}
-        className="aspect-auto overflow-hidden rounded-xl"
       >
         {urls.map((url, i) => (
-          <SwiperSlide key={i} className="h-40 bg-indigo-600">
+          <SwiperSlide key={i} className="relative aspect-square">
             <Image
               src={url}
-              width={1300}
-              height={960}
-              alt="product image"
+              fill
+              priority
               loading="eager"
-              className="h-full w-full object-cover object-center"
+              alt="product image"
+              className="rounded-xl object-cover"
             />
           </SwiperSlide>
         ))}

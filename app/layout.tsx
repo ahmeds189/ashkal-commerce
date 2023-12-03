@@ -16,8 +16,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en" className="dark">
-      <body className={cn(inter.className, "flex min-h-screen flex-col")}>
+    <html lang="en" className="dark h-full min-h-screen">
+      <body className={cn(inter.className, "flex h-full flex-col")}>
         <Providers>
           <Toaster richColors position="top-center" />
           <Navbar />

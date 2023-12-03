@@ -3,8 +3,8 @@ import { buttonVariants } from "./ui/button";
 
 export default function Hero() {
   return (
-    <div className="container relative py-20 text-center">
-      <h1 className="mx-auto mb-6 max-w-lg text-4xl font-bold tracking-tight">
+    <div className="container relative block h-full flex-1 pt-24 text-center">
+      <h1 className="mx-auto mb-6 max-w-lg text-3xl font-bold tracking-tight sm:text-4xl lg:max-w-2xl lg:text-5xl">
         Your marketplace for heigh quality&nbsp;
         <span className="text-blue-600">digital assets.</span>
       </h1>
@@ -18,9 +18,10 @@ export default function Hero() {
       >
         Browse Trending
       </Link>
-
-      <span className="absolute inset-0 -z-50 h-64 w-64 bg-gradient-to-r from-blue-600 to-violet-700 opacity-10 blur-3xl"></span>
-      <span className="absolute right-0 -z-50 h-64 w-64 bg-gradient-to-r from-blue-600 to-violet-700 opacity-10 blur-3xl"></span>
+      <div className="absolute left-1/2 top-1/2 -z-50 flex -translate-x-1/2 -translate-y-1/2 flex-col md:flex-row">
+        <div className="h-64 w-64 bg-gradient-to-r from-blue-600 to-violet-700 opacity-20 blur-3xl"></div>
+        <div className="h-64 w-64 bg-gradient-to-r from-blue-600 to-violet-700 opacity-20 blur-3xl"></div>
+      </div>
     </div>
   );
 }

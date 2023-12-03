@@ -1,7 +1,7 @@
 "use client";
 import { ProductQueryTypes } from "@/lib/schema";
 import { Product } from "@/server/payload-types";
-import { trpc } from "@/trpc/client";
+import { trpc } from "@/server/trpc/client";
 import ProductCard from "./product-card";
 
 type Props = {
@@ -33,7 +33,7 @@ export default function ProductReel(props: Props) {
   return (
     <section className="container space-y-6 py-20 text-start">
       <h1 className="text-2xl font-bold">{title}</h1>
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(12rem,1fr))] gap-x-4 gap-y-8 md:gap-x-6">
+      <div>
         {mapedProducts.map((product, i) => (
           <ProductCard product={product} index={i} key={i} />
         ))}

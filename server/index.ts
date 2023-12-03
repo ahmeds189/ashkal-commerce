@@ -2,7 +2,7 @@ import express from "express";
 import { getPayloadClient } from "./get-payload";
 import { nextApp, nextHandler } from "../next.utils";
 import * as trpcExpress from "@trpc/server/adapters/express";
-import { appRouter } from "../trpc";
+import { appRouter } from "./trpc";
 import { inferAsyncReturnType } from "@trpc/server";
 
 const app = express();

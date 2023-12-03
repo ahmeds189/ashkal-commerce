@@ -1,8 +1,8 @@
 import { z } from "zod";
 import { authRouter } from "./auth-router";
 import { publicProcedure, router } from "./trpc";
-import { ProductQuery } from "../lib/schema";
-import { getPayloadClient } from "../server/get-payload";
+import { ProductQuery } from "../../lib/schema";
+import { getPayloadClient } from "../get-payload";
 
 export const appRouter = router({
   auth: authRouter,

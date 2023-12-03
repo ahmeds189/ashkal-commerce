@@ -4,11 +4,11 @@ import { slateEditor } from "@payloadcms/richtext-slate";
 import path from "path";
 import dotenv from "dotenv";
 import { buildConfig } from "payload/config";
-import { Users } from "../collections/users";
-import { Products } from "../collections/products";
-import { Media } from "../collections/media";
-import { Files } from "../collections/files";
-import { Orders } from "../collections/orders";
+import { Users } from "./collections/users";
+import { Products } from "./collections/products";
+import { Media } from "./collections/media";
+import { Files } from "./collections/files";
+import { Orders } from "./collections/orders";
 
 dotenv.config({
   path: path.resolve(__dirname, "../.env"),
