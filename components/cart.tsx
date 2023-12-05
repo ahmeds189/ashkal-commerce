@@ -1,3 +1,4 @@
+"use client";
 /* eslint-disable react/no-unescaped-entities */
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -9,14 +10,21 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { cn, formatPrice } from "@/lib/utils";
+import { useCart } from "@/hooks/useCart";
+import { formatPrice } from "@/lib/utils";
 import { ShoppingBag } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import CartItem from "./cart-item";
 
 export default function Cart() {
-  const items = 0;
+  const { items } = useCart();
   const fee = 1;
+  const cartTotal = items.reduce(
+    (total, { product }) => total + product.price,
+    0,
+  );
 
   return (
     <Sheet>
@@ -27,12 +35,18 @@ export default function Cart() {
       </SheetTrigger>
       <SheetContent className="flex flex-col">
         <SheetHeader className="text-start">
-          <SheetTitle>cart items ({items})</SheetTitle>
+          <SheetTitle>cart items ({items.length})</SheetTitle>
           <Separator />
         </SheetHeader>
 
-        {items > 0 ? (
+        {items.length > 0 ? (
           <div className="flex flex-1 flex-col gap-4">
+            <ScrollArea className="max-h-[700px]">
+              {items.map(({ product }) => (
+                <CartItem key={product.id} product={product} />
+              ))}
+            </ScrollArea>
+            <Separator />
             <div className="flex text-sm">
               <p className="mr-auto">Shipping</p>
               <p>free</p>
@@ -41,9 +55,13 @@ export default function Cart() {
               <p className="mr-auto">Transaction Fee</p>
               <p>{formatPrice(fee)}</p>
             </div>
+            <div className="flex text-sm">
+              <p className="mr-auto">Total</p>
+              <p>{formatPrice(cartTotal + fee)}</p>
+            </div>
             <SheetClose asChild>
               <Link
-                href="cart"
+                href="/cart"
                 className={buttonVariants({ className: "w-full" })}
               >
                 Continue to checkout
