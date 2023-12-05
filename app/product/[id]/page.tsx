@@ -6,6 +6,7 @@ import { getPayloadClient } from "@/server/get-payload";
 import { ChevronRight, Link2, Shield } from "lucide-react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import ProductReel from "@/components/product-reel";
 
 type Props = {
   params: { id: string };
@@ -64,10 +65,11 @@ export default async function ProductPage({ params }: Props) {
       <div className="flex flex-col gap-8 md:flex-row">
         <div className="mx-auto w-full space-y-4 md:max-w-md md:basis-1/2 ">
           <ImageSlider
+            productName={product.name}
             urls={imagesUrls}
             className="aspect-video md:aspect-square"
           />
-          <AddToCart />
+          <AddToCart product={product} />
           <p className="text-center text-sm text-muted-foreground">
             <Shield size={18} className="inline-block" /> 30 days money back
             guarantee
@@ -92,6 +94,11 @@ export default async function ProductPage({ params }: Props) {
           <p className="text-lg font-semibold">{formatPrice(product.price)}</p>
         </div>
       </div>
+      <ProductReel
+        href="/products"
+        query={{ category: product.category, limit: 4 }}
+        title="Similar Products"
+      />
     </div>
   );
 }
