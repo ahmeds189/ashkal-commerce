@@ -20,7 +20,11 @@ export default function ProductCard({ product }: Props) {
   if (product)
     return (
       <Link href={`/product/${product.id}`} className="block space-y-2">
-        <ImageSlider urls={imagesUrls} className="aspect-square" />
+        <ImageSlider
+          productName={product.name}
+          urls={imagesUrls}
+          className="aspect-square"
+        />
         <h3>{truncate(product.name, 24)}</h3>
         <p className="font-semibold">{formatPrice(product.price)}</p>
       </Link>

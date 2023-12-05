@@ -15,9 +15,11 @@ import { cn } from "@/lib/utils";
 export default function ImageSlider({
   urls,
   className = "aspect-square",
+  productName,
 }: {
   urls: string[];
   className: string;
+  productName: string;
 }) {
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
   const [active, setActive] = useState(0);
@@ -83,12 +85,12 @@ export default function ImageSlider({
           <SwiperSlide key={i} className={`relative ${className}`}>
             <Image
               src={url}
-              alt="product image"
+              alt={productName}
               fill
               loading="eager"
               priority
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="rounded-xl object-cover object-left"
+              className="rounded-xl object-cover"
             />
           </SwiperSlide>
         ))}

@@ -40,7 +40,7 @@ export default function ProductReel(props: Props) {
         {href && (
           <Link
             href={href}
-            className="text-sm underline-offset-4 hover:underline"
+            className="text-sm text-muted-foreground underline-offset-4 hover:underline"
           >
             View all products
             <ArrowRight size={16} className="ml-1 inline-block" />
