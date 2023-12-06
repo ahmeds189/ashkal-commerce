@@ -10,8 +10,8 @@ export default function CartItem({ product }: { product: Product }) {
   const { image } = product.images[0];
   const { removeItem } = useCart();
   return (
-    <div className="mb-4 flex gap-3 text-sm">
-      <div className="relative h-24 basis-32 overflow-hidden rounded-md">
+    <div className="mb-4 flex gap-3">
+      <div className="relative h-[100px] basis-[100px] overflow-hidden rounded-md">
         {typeof image !== "string" && image.url ? (
           <Image
             src={image.url}
@@ -27,8 +27,8 @@ export default function CartItem({ product }: { product: Product }) {
           </div>
         )}
       </div>
-      <div className="flex flex-1 flex-col justify-between">
-        <p className="mb-3 text-sm">{name}</p>
+      <div className="flex flex-1 flex-col">
+        <p className="mb-3 font-medium">{name}</p>
         <div className="flex">
           <p className="me-auto font-semibold">{formatPrice(price)}</p>
           <button onClick={() => removeItem(id)}>

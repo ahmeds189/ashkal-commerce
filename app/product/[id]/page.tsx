@@ -81,17 +81,24 @@ export default async function ProductPage({ params }: Props) {
           <p className="mb-3 text-sm text-muted-foreground">
             {product.description}
           </p>
-          {product.credit && (
-            <a
-              href={product.credit}
-              target="_blank"
-              className="mb-3 text-sm text-blue-500 underline-offset-4 hover:underline"
-            >
-              credit
-              <Link2 size={16} className="ml-1 inline-block" />
-            </a>
-          )}
-          <p className="text-lg font-semibold">{formatPrice(product.price)}</p>
+          <p className="mb-5 text-lg font-semibold">
+            {formatPrice(product.price)}
+          </p>
+          <div className="flex justify-between">
+            <p className="text-sm text-muted-foreground">
+              ✅ eligible for instant delivery
+            </p>
+            {product.credit && (
+              <a
+                href={product.credit}
+                target="_blank"
+                className="text-sm text-blue-500 underline-offset-4 hover:underline"
+              >
+                credit
+                <Link2 size={16} className="ml-1 inline-block" />
+              </a>
+            )}
+          </div>
         </div>
       </div>
       <ProductReel
