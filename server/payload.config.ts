@@ -22,7 +22,7 @@ export default buildConfig({
   },
   admin: {
     bundler: webpackBundler(),
-    meta: { titleSuffix: "- Assets Square" },
+    meta: { titleSuffix: "- Ashkal" },
     user: "users",
   },
   rateLimit: { max: 2000 },
