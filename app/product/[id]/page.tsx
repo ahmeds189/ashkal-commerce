@@ -85,7 +85,7 @@ export default async function ProductPage({ params }: Props) {
             <a
               href={product.credit}
               target="_blank"
-              className="mb-3 block text-sm text-blue-500 underline-offset-4 hover:underline"
+              className="mb-3 text-sm text-blue-500 underline-offset-4 hover:underline"
             >
               credit
               <Link2 size={16} className="ml-1 inline-block" />
