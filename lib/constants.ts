@@ -1,4 +1,4 @@
-import { ArrowDownToLine, CheckCircle, Leaf } from "lucide-react";
+import { ArrowDownToLine, CheckCircle, Leaf, Banknote } from "lucide-react";
 
 export const overview = [
   {
@@ -14,9 +14,9 @@ export const overview = [
     icon: CheckCircle,
   },
   {
-    name: "For the planet",
+    name: "Seller Opportunities",
     details:
-      "we've put 1% of seals to the presservation and restoration of the the natural enviroment.",
-    icon: Leaf,
+      "Elevate your role from admirer to creator by signing up as a seller, showcasing your designs to a global audience.",
+    icon: Banknote,
   },
 ];

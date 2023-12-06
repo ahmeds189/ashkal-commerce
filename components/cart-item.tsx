@@ -1,16 +1,17 @@
+"use client";
 import { Product } from "@/server/payload-types";
 import Image from "next/image";
 import { ImageIcon, Trash2 } from "lucide-react";
 import { formatPrice } from "@/lib/utils";
-import { Button } from "./ui/button";
+import { useCart } from "@/hooks/useCart";
 
 export default function CartItem({ product }: { product: Product }) {
-  const { name, price } = product;
+  const { name, price, id } = product;
   const { image } = product.images[0];
-
+  const { removeItem } = useCart();
   return (
-    <div className="mb-4 flex items-center gap-3">
-      <div className="relative h-16 basis-28 overflow-hidden rounded-md">
+    <div className="mb-4 flex gap-3 text-sm">
+      <div className="relative h-24 basis-32 overflow-hidden rounded-md">
         {typeof image !== "string" && image.url ? (
           <Image
             src={image.url}
@@ -18,6 +19,7 @@ export default function CartItem({ product }: { product: Product }) {
             fill
             loading="eager"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover"
           />
         ) : (
           <div className="grid h-16 w-full place-content-center bg-muted">
@@ -25,13 +27,13 @@ export default function CartItem({ product }: { product: Product }) {
           </div>
         )}
       </div>
-      <div className="flex flex-1 flex-col">
+      <div className="flex flex-1 flex-col justify-between">
         <p className="mb-3 text-sm">{name}</p>
-        <div className="flex justify-between">
-          {formatPrice(price)}
-          <Button size="sm" variant="ghost" className="h-7 p-1">
-            <Trash2 size={20} className="text-rose-500" />
-          </Button>
+        <div className="flex">
+          <p className="me-auto font-semibold">{formatPrice(price)}</p>
+          <button onClick={() => removeItem(id)}>
+            <Trash2 size={18} className="text-muted-foreground" />
+          </button>
         </div>
       </div>
     </div>

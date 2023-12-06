@@ -9,8 +9,8 @@ export default function Hero() {
         <span className="text-blue-600">digital assets.</span>
       </h1>
       <p className="mx-auto mb-8 max-w-sm text-muted-foreground">
-        Welcome to AssetsSquare, every asset on our platform is verified by our
-        team to ensure our highest quality standards.
+        Welcome to Ashkal, every asset on our platform is verified by our team
+        to ensure our highest quality standards.
       </p>
       <Link
         href="products"
