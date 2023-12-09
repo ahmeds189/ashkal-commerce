@@ -1,11 +1,11 @@
-import { WebhookRequest } from "./server";
+import { WebhookRequest } from "../server";
 import express from "express";
-import { stripe } from "./lib/stripe";
+import { stripe } from "./stripe";
 import type Stripe from "stripe";
-import { getPayloadClient } from "./get-payload";
-import { Product } from "./payload-types";
+import { getPayloadClient } from "../server/get-payload";
+import { Product } from "../server/payload-types";
 import { Resend } from "resend";
-import { ReceiptEmailHtml } from "./components/emails/receipt";
+import { ReceiptEmailHtml } from "../components/emails/receipt";
 
 const resend = new Resend("re_Z9HW9s1M_3wurT1YCBGjwsx4jXfdx3ecv");
 

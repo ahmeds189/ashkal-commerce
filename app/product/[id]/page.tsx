@@ -2,7 +2,7 @@ import { PRODUCT_CATEGORIES } from "@/server/collections/products";
 import AddToCart from "@/components/add-to-cart";
 import ImageSlider from "@/components/image-slider";
 import { formatPrice } from "@/lib/utils";
-import { getPayloadClient } from "@/get-payload";
+import { getPayloadClient } from "@/server/get-payload";
 import { ChevronRight, Link2, Shield } from "lucide-react";
 import { notFound } from "next/navigation";
 import Link from "next/link";

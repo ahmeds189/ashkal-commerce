@@ -1,7 +1,7 @@
 import PaymentStatus from "@/components/payment-status";
 import { getUserSessionInfo } from "@/lib/utils";
-import { getPayloadClient } from "@/get-payload";
-import { Product, ProductFile, User } from "@/payload-types";
+import { getPayloadClient } from "@/server/get-payload";
+import { Product, ProductFile, User } from "@/server/payload-types";
 import { FileDown } from "lucide-react";
 import { cookies } from "next/headers";
 import Image from "next/image";

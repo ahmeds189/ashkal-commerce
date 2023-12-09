@@ -1,5 +1,5 @@
 "use client";
-import { Product } from "@/payload-types";
+import { Product } from "@/server/payload-types";
 import Image from "next/image";
 import { ImageIcon, Trash2 } from "lucide-react";
 import { formatPrice } from "@/lib/utils";

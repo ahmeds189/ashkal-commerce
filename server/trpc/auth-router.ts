@@ -1,6 +1,6 @@
 import { AuthSchema } from "../../lib/schema";
 import { publicProcedure, router } from "./trpc";
-import { getPayloadClient } from "../../get-payload";
+import { getPayloadClient } from "../get-payload";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 

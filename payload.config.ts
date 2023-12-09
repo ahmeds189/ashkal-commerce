@@ -28,7 +28,7 @@ export default buildConfig({
   rateLimit: { max: 2000 },
   editor: slateEditor({}),
   db: mongooseAdapter({
-    url: process.env.MONGODB_URL!,
+    url: "mongodb+srv://ahmed:ahmed@cluster0.niwdglc.mongodb.net/main?retryWrites=true&w=majority",
   }),
   typescript: {
     outputFile: path.resolve(__dirname, "./payload-types.ts"),
