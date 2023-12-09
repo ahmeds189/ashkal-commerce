@@ -1,14 +1,11 @@
 "use client";
 import CartItem from "@/components/cart-item";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { useCart } from "@/hooks/useCart";
 import { formatPrice } from "@/lib/utils";
-import { trpc } from "@/server/trpc/client";
-import { Loader } from "lucide-react";
+import { Separator } from "@radix-ui/react-separator";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
 
 export default function CartPage() {
   const { items } = useCart();
@@ -18,28 +15,11 @@ export default function CartPage() {
     0,
   );
 
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  const router = useRouter();
-
-  const { mutate: createCheckoutSession, isLoading } =
-    trpc.payment.createSession.useMutation({
-      onSuccess: ({ url }) => {
-        if (url) router.push(url);
-      },
-    });
-
-  const productIds = items.map(({ product }) => product.id);
-
   return (
     <div className="container mt-20 h-full">
       <h1 className="mb-10 text-2xl font-bold">Check out</h1>
       <div className="flex flex-col gap-5 md:flex-row">
-        {isClient && items.length > 0 ? (
+        {items.length > 0 ? (
           <>
             <div className="basis-1/2 rounded-lg border-2 border-dashed p-3">
               {items.map(({ product }) => (
@@ -62,17 +42,12 @@ export default function CartPage() {
                   <p>{formatPrice(cartTotal + fee)}</p>
                 </div>
               </div>
-              <Button
-                onClick={() => createCheckoutSession({ productIds })}
-                disabled={isLoading || !items.length}
-                className="w-full"
+              <Link
+                href="/cart"
+                className={buttonVariants({ className: "w-full" })}
               >
-                {isLoading ? (
-                  <Loader className="animate-spin" />
-                ) : (
-                  "Confirm order"
-                )}
-              </Button>
+                Continue to checkout
+              </Link>
             </div>
           </>
         ) : (

@@ -1,10 +1,16 @@
 import dotenv from "dotenv";
 import path from "path";
 import { type InitOptions } from "payload/config";
-import payload, { Payload } from "payload";
+import payload, { type Payload } from "payload";
 import nodemailer from "nodemailer";
 
+<<<<<<< HEAD
 dotenv.config({ path: path.resolve(__dirname, "../.env") });
+=======
+dotenv.config({
+  path: path.resolve(__dirname, "../.env"),
+});
+>>>>>>> parent of d3b33f3 (test deployment v1)
 
 const transporter = nodemailer.createTransport({
   host: "smtp.resend.com",
@@ -45,7 +51,7 @@ export const getPayloadClient = async ({
       email: {
         transport: transporter,
         fromAddress: "onboarding@resend.dev",
-        fromName: "Ashkal",
+        fromName: "Ashkal - اشكال",
       },
       secret: "thisissecuresecret",
       local: initOptions?.express ? false : true,

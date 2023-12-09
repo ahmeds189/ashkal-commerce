@@ -1,5 +1,4 @@
-import { CartItem } from "@/hooks/useCart";
-import { Product, User } from "../server/payload-types";
+import { User } from "../server/payload-types";
 import { type ClassValue, clsx } from "clsx";
 import { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
 import { NextRequest } from "next/server";
@@ -42,8 +41,4 @@ export const getUserSessionInfo = async (
 
   const { user } = (await userRes.json()) as { user: User | null };
   return { user };
-};
-
-export const getTotalProductsPrice = (products: Product[], fee: number) => {
-  return formatPrice(products.reduce((acc, curr) => acc + curr.price, fee));
 };
