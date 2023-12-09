@@ -1,10 +1,12 @@
 import dotenv from "dotenv";
 import path from "path";
 import { type InitOptions } from "payload/config";
-import payload, { type Payload } from "payload";
+import payload, { Payload } from "payload";
 import nodemailer from "nodemailer";
 
 dotenv.config({ path: path.resolve(__dirname, "../.env") });
+
+console.log(process.env.RESEND_API_KEY);
 
 const transporter = nodemailer.createTransport({
   host: "smtp.resend.com",
@@ -12,7 +14,7 @@ const transporter = nodemailer.createTransport({
   port: 465,
   auth: {
     user: "resend",
-    pass: "re_Z9HW9s1M_3wurT1YCBGjwsx4jXfdx3ecv",
+    pass: process.env.RESEND_API_KEY,
   },
 });
 
@@ -45,9 +47,9 @@ export const getPayloadClient = async ({
       email: {
         transport: transporter,
         fromAddress: "onboarding@resend.dev",
-        fromName: "Ashkal - اشكال",
+        fromName: "Ashkal",
       },
-      secret: "thisissecuresecret",
+      secret: process.env.PAYLOAD_SECRET,
       local: initOptions?.express ? false : true,
       ...(initOptions || {}),
     });
