@@ -11,7 +11,7 @@ import { Files } from "./server/collections/files";
 import { Orders } from "./server/collections/orders";
 
 dotenv.config({
-  path: path.resolve(__dirname, "../.env"),
+  path: path.resolve(__dirname, ".env"),
 });
 
 export default buildConfig({
