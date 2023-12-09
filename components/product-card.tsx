@@ -1,5 +1,5 @@
 "use client";
-import { Product } from "@/server/payload-types";
+import { Product } from "@/payload-types";
 import { Skeleton } from "./ui/skeleton";
 import Link from "next/link";
 import { formatPrice, truncate } from "@/lib/utils";

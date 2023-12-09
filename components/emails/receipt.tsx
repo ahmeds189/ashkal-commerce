@@ -1,5 +1,5 @@
 import { formatPrice, getTotalProductsPrice } from "../../lib/utils";
-import { Product } from "../../server/payload-types";
+import { Product } from "../../payload-types";
 import {
   Body,
   Column,

@@ -1,4 +1,4 @@
-import { User } from "@/server/payload-types";
+import { User } from "@/payload-types";
 import { Access, CollectionConfig } from "payload/types";
 
 const adminOrHasAccess =

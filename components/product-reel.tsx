@@ -1,6 +1,6 @@
 "use client";
 import { ProductQueryTypes } from "@/lib/schema";
-import { Product } from "@/server/payload-types";
+import { Product } from "@/payload-types";
 import { trpc } from "@/server/trpc/client";
 import ProductCard from "./product-card";
 import Link from "next/link";

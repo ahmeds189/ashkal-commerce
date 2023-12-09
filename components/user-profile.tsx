@@ -11,7 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { User } from "@/server/payload-types";
+import { User } from "@/payload-types";
 import useAuth from "@/hooks/useAuth";
 
 export default function UserProfile({ user }: { user: User }) {

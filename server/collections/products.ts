@@ -1,6 +1,6 @@
 import { BeforeChangeHook } from "payload/dist/collections/config/types";
 import { CollectionConfig } from "payload/types";
-import { Product } from "../payload-types";
+import { Product } from "../../payload-types";
 import { stripe } from "../../lib/stripe";
 
 export const PRODUCT_CATEGORIES = [
