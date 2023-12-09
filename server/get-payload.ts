@@ -6,8 +6,6 @@ import nodemailer from "nodemailer";
 
 dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
-console.log(process.env.RESEND_API_KEY);
-
 const transporter = nodemailer.createTransport({
   host: "smtp.resend.com",
   secure: true,
