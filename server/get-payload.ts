@@ -4,13 +4,7 @@ import { type InitOptions } from "payload/config";
 import payload, { type Payload } from "payload";
 import nodemailer from "nodemailer";
 
-<<<<<<< HEAD
 dotenv.config({ path: path.resolve(__dirname, "../.env") });
-=======
-dotenv.config({
-  path: path.resolve(__dirname, "../.env"),
-});
->>>>>>> parent of d3b33f3 (test deployment v1)
 
 const transporter = nodemailer.createTransport({
   host: "smtp.resend.com",
@@ -38,9 +32,9 @@ interface Args {
 export const getPayloadClient = async ({
   initOptions,
 }: Args = {}): Promise<Payload> => {
-  // if (!process.env.PAYLOAD_SECRET) {
-  //   throw new Error("PAYLOAD_SECRET is missing");
-  // }
+  if (!process.env.PAYLOAD_SECRET) {
+    throw new Error("PAYLOAD_SECRET is missing");
+  }
 
   if (cached.client) {
     return cached.client;
