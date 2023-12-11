@@ -6,10 +6,11 @@
     "build:server": "tsc --project tsconfig.server.json",
     "build:next": "cross-env PAYLOAD_CONFIG_PATH=dist/server/payload.config.js NEXT_BUILD=true node dist/server/index.js",
     "dev": "cross-env PAYLOAD_CONFIG_PATH=server/payload.config.ts nodemon",
-    "build": "cross-env NODE_ENV=production pnpm build:payload && pnpm build:server && pnpm copyfiles && pnpm build:next",
-    "start": "cross-env PAYLOAD_CONFIG_PATH=dist/server/payload.config.js NODE_ENV=production node dist/server/index.js",
-    "copyfiles": "copyfiles -u 1 \"src/**/*.{html,css,scss,ttf,woff,woff2,eot,svg,jpg,png}\" dist/",
-    "lint": "next lint"
+    "build": "cross-env NODE_ENV=production pnpm build:payload && pnpm build:server && pnpm copyfiles && pnpm build:next pnpm:copy-config",
+    "start": "copyfiles -u dist/next.config.js /app && cross-env PAYLOAD_CONFIG_PATH=dist/server/payload.config.js NODE_ENV=production node dist/server/index.js",
+    "copyfiles": "copyfiles -u 1 \"app/**/*.{html,css,scss,ttf,woff,woff2,eot,svg,jpg,png}\" \"server/**/*.{html,css,scss,ttf,woff,woff2,eot,svg,jpg,png}\" dist/",
+    "lint": "next lint",
+    "copy-config": "copyfiles next.config.js dist"
   },
   "resolutions": {
     "cliui": "7.0.2"
