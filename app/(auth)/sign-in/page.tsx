@@ -18,7 +18,7 @@ export default function SigninPage() {
         Sign in to your {isSeller && "seller"} account
       </h1>
       <Link
-        href="sign-in"
+        href="sign-un"
         className={cn(
           buttonVariants({
             variant: "link",
@@ -30,7 +30,6 @@ export default function SigninPage() {
         sign-up if you don't have an account
       </Link>
       <SigninForm />
-      <p></p>
     </div>
   );
 }
