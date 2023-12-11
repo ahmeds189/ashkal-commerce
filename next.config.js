@@ -8,6 +8,10 @@ const nextConfig = {
         port: "3000",
         protocol: "http",
       },
+      {
+        protocol: "https",
+        hostname: "ashkal-commerce.up.railway.app",
+      },
     ],
   },
 };
