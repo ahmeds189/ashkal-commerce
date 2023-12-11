@@ -6,6 +6,12 @@ import { getPayloadClient } from "../server/get-payload";
 import { Product } from "../server/payload-types";
 import { Resend } from "resend";
 import { ReceiptEmailHtml } from "../components/emails/receipt";
+import path from "path";
+import dotenv from "dotenv";
+
+dotenv.config({
+  path: path.resolve(__dirname, "../.env"),
+});
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
