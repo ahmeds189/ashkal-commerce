@@ -56,7 +56,7 @@ export default function SigninForm() {
   return (
     <>
       <form
-        className="mx-auto max-w-sm space-y-3 text-start"
+        className="mx-auto max-w-sm space-y-2 text-start"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div>
@@ -82,13 +82,11 @@ export default function SigninForm() {
           />
           <ErrorMessage message={errors.password?.message} />
         </div>
-        <Button type="submit" className="w-full" disabled={isLoading}>
+        <Button type="submit" className="!mt-2 w-full" disabled={isLoading}>
           {isLoading ? <LoaderIcon className="animate-spin" /> : "Sign in"}
         </Button>
       </form>
-      <br />
-      <Separator />
-      <br />
+      <Separator className="mx-auto my-4 h-0.5 max-w-sm rounded-xl bg-muted" />
       <div className="mx-auto max-w-sm">
         {isSeller ? (
           <Button
