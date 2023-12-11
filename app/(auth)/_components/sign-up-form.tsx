@@ -44,7 +44,7 @@ export default function SignupForm() {
 
   return (
     <form
-      className="mx-auto max-w-sm space-y-3 text-start"
+      className="mx-auto max-w-sm space-y-2 text-start"
       onSubmit={handleSubmit(onSubmit)}
     >
       <div>
