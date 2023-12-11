@@ -9,8 +9,8 @@
     "build": "cross-env NODE_ENV=production pnpm build:payload && pnpm build:server && pnpm copyfiles && pnpm build:next pnpm:copy-config",
     "start": "cross-env PAYLOAD_CONFIG_PATH=dist/server/payload.config.js NODE_ENV=production node dist/server/index.js",
     "copyfiles": "copyfiles -u 1 \"app/**/*.{html,css,scss,ttf,woff,woff2,eot,svg,jpg,png}\" \"server/**/*.{html,css,scss,ttf,woff,woff2,eot,svg,jpg,png}\" dist/",
-    "lint": "next lint",
-    "copy-config": "copyfiles next.config.js dist"
+    "copy-config": "copyfiles next.config.js dist",
+    "lint": "next lint"
   },
   "resolutions": {
     "cliui": "7.0.2"
