@@ -25,12 +25,7 @@ type Props = {
   products: Product[];
 };
 
-export default function ReceiptEmail({
-  email,
-  date,
-  orderId,
-  products,
-}: Props) {
+export function ReceiptEmail({ email, date, orderId, products }: Props) {
   const total = getTotalProductsPrice(products, 1);
 
   return (
