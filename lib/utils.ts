@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { Product, User } from "../server/payload-types";
 import { type ClassValue, clsx } from "clsx";
 import { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
@@ -46,3 +47,46 @@ export const getUserSessionInfo = async (
 export const getTotalProductsPrice = (products: Product[], fee: number) => {
   return formatPrice(products.reduce((acc, curr) => acc + curr.price, fee));
 };
+
+export function constructMetadata({
+  title = "Ashkal - اشكال",
+  description = "Ashkal Creations - Where Every Design Unfolds a Unique Digital Symphony of Innovation and Artistry.",
+  image = "/thumbnail.png",
+  icons = "/favicon.ico",
+  noIndex = false,
+}: {
+  title?: string;
+  description?: string;
+  image?: string;
+  icons?: string;
+  noIndex?: boolean;
+} = {}): Metadata {
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [
+        {
+          url: image,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+      creator: "@ahmeddotgg",
+    },
+    icons,
+    metadataBase: new URL("https://ashkal.onrender.com"),
+    ...(noIndex && {
+      robots: {
+        index: false,
+        follow: false,
+      },
+    }),
+  };
+}

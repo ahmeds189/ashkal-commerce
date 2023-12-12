@@ -2,18 +2,15 @@ import { type PropsWithChildren } from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/navbar";
-import { cn } from "@/lib/utils";
+import { cn, constructMetadata } from "@/lib/utils";
 import "./globals.css";
 import Providers from "@/components/providers";
 import { Toaster } from "sonner";
+import Footer from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Ashkal - اشكال",
-  description:
-    "Ashkal Creations - Where Every Design Unfolds a Unique Digital Symphony of Innovation and Artistry",
-};
+export const metadata: Metadata = constructMetadata();
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
@@ -23,6 +20,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
           <Toaster richColors position="top-center" />
           <Navbar />
           <main className="flex-1">{children}</main>
+          <Footer />
         </Providers>
       </body>
     </html>
