@@ -1,6 +1,7 @@
 "use client";
 import CartItem from "@/components/cart-item";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 import { useCart } from "@/hooks/useCart";
 import { formatPrice } from "@/lib/utils";
 import { trpc } from "@/server/trpc/client";
@@ -38,25 +39,30 @@ export default function CartPage() {
   return (
     <div className="container mt-20 h-full">
       <h1 className="mb-10 text-2xl font-bold">Check out</h1>
-      <div className="flex flex-col gap-5 md:flex-row">
+      <div className="flex flex-col gap-8 md:flex-row">
         {isClient && items.length > 0 ? (
           <>
-            <div className="basis-1/2 rounded-lg border-2 border-dashed p-3">
-              {items.map(({ product }) => (
-                <CartItem key={product.id} product={product} />
-              ))}
-            </div>
-            <div className="basis-1/2 space-y-5 rounded-lg border-2 border-dashed p-3">
+            <section className="basis-1/2">
+              <p className="mb-6 text-lg font-semibold">Order Items</p>
+              <div className="space-y-4">
+                {items.map(({ product }) => (
+                  <CartItem key={product.id} product={product} />
+                ))}
+              </div>
+            </section>
+            <section className="basis-1/2 space-y-6">
               <p className="text-lg font-semibold">Order Summary</p>
-              <div className="space-y-2 divide-y-2 text-muted-foreground">
+              <div className="text-muted-foreground">
                 <div className="flex text-sm">
                   <p className="mr-auto">Shipping</p>
                   <p>free</p>
                 </div>
+                <Separator className="mx-auto my-3" />
                 <div className="flex text-sm">
                   <p className="mr-auto">Transaction Fee</p>
                   <p>{formatPrice(fee)}</p>
                 </div>
+                <Separator className="mx-auto my-3" />
                 <div className="flex font-semibold text-foreground">
                   <p className="mr-auto">Total</p>
                   <p>{formatPrice(cartTotal + fee)}</p>
@@ -73,7 +79,7 @@ export default function CartPage() {
                   "Confirm order"
                 )}
               </Button>
-            </div>
+            </section>
           </>
         ) : (
           <div className="flex-1 space-y-3 rounded-lg border-2 border-dashed py-20 text-center">
