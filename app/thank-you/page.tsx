@@ -40,7 +40,7 @@ export default async function ThankyouPage({ searchParams }: Props) {
   }
 
   return (
-    <main className="container mt-20 flex flex-col gap-4">
+    <div className="container mt-20 flex flex-col gap-4">
       <Image
         src="/received-order.png"
         alt="order confirmed"
@@ -100,6 +100,6 @@ export default async function ThankyouPage({ searchParams }: Props) {
       <Link href="/products" className="mt-8 text-end text-sm text-blue-500">
         continue shopping &rsaquo;
       </Link>
-    </main>
+    </div>
   );
 }
