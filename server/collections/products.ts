@@ -5,7 +5,7 @@ import {
 import { Access, CollectionConfig } from "payload/types";
 import { Product, User } from "../payload-types";
 import { stripe } from "../../lib/stripe";
-import { PRODUCT_CATEGORIES } from "@/lib/constants";
+import { PRODUCT_CATEGORIES } from "../../lib/constants";
 
 const addUser: BeforeChangeHook<Product> = async ({ req: { user }, data }) => {
   return { ...data, user: user.id };
