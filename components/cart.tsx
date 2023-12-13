@@ -16,7 +16,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import CartItem from "./cart-item";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useEffectOnce } from "usehooks-ts";
 
 export default function Cart() {
   const { items } = useCart();
@@ -26,11 +27,11 @@ export default function Cart() {
     0,
   );
 
-  const [isClient, setIsClient] = useState(false);
+  const [isMouted, setIsMounted] = useState(false);
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  useEffectOnce(() => {
+    setIsMounted(true);
+  });
 
   return (
     <Sheet>
@@ -38,7 +39,7 @@ export default function Cart() {
         <Button variant="ghost" size="sm" className="relative">
           <ShoppingBag />
           <span className="absolute right-0 top-0 h-5 w-5 rounded-full bg-blue-500 text-sm">
-            {isClient && items.length}
+            {isMouted && items.length}
           </span>
         </Button>
       </SheetTrigger>

@@ -2,31 +2,31 @@
 import { Product } from "@/server/payload-types";
 import { Button } from "./ui/button";
 import { useCart } from "@/hooks/useCart";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { toast } from "sonner";
+import { useEffectOnce } from "usehooks-ts";
 
 export default function AddToCart({ product }: { product: Product }) {
   const { addItem, items } = useCart();
-  const [isClient, setIsClient] = useState(false);
+  const [isMouted, setIsMounted] = useState(false);
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  useEffectOnce(() => {
+    setIsMounted(true);
+  });
 
-  // todo disable add  to card if item alreay exist
   const isFound = items.some(({ product: item }) => item.id === product.id);
 
   return (
     <Button
       size="lg"
       className="w-full"
-      disabled={isClient && isFound}
+      disabled={isMouted && isFound}
       onClick={() => {
         addItem(product);
         toast.success("Item added successfully!", { duration: 1000 });
       }}
     >
-      {isClient && isFound ? "✅ Added" : "Add to cart"}
+      {isMouted && isFound ? "✅ Added" : "Add to cart"}
     </Button>
   );
 }

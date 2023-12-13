@@ -9,9 +9,11 @@ import { Loader } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useEffectOnce } from "usehooks-ts";
 
 export default function CartPage() {
+  const [isMouted, setIsMounted] = useState(false);
   const { items } = useCart();
   const fee = 1;
   const cartTotal = items.reduce(
@@ -19,11 +21,9 @@ export default function CartPage() {
     0,
   );
 
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  useEffectOnce(() => {
+    setIsMounted(true);
+  });
 
   const router = useRouter();
 
@@ -36,11 +36,13 @@ export default function CartPage() {
 
   const productIds = items.map(({ product }) => product.id);
 
+  if (!isMouted) return null;
+
   return (
     <div className="container mt-20 h-full">
       <h1 className="mb-10 text-2xl font-bold">Check out</h1>
       <div className="flex flex-col gap-8 md:flex-row">
-        {isClient && items.length > 0 ? (
+        {isMouted && items.length > 0 ? (
           <>
             <section className="basis-1/2">
               <p className="mb-6 text-lg font-semibold">Order Items</p>
