@@ -1,4 +1,11 @@
-import { ArrowDownToLine, CheckCircle, Leaf, Banknote } from "lucide-react";
+import {
+  ArrowDownToLine,
+  CheckCircle,
+  Banknote,
+  Github,
+  Twitter,
+  Linkedin,
+} from "lucide-react";
 
 export const overview = [
   {
@@ -19,4 +26,25 @@ export const overview = [
       "Elevate your role from admirer to creator by signing up as a seller, showcasing your designs to a global audience.",
     icon: Banknote,
   },
+];
+
+export const socialLinks = [
+  { href: "https://github.com/ahmeds189", icon: Github },
+  { href: "https://twitter.com/ahmeddotgg", icon: Twitter },
+  {
+    href: "https://linkedin.com/in/ahmeds189",
+    icon: Linkedin,
+  },
+];
+
+export const navLinks = [
+  { href: "/", title: "Home" },
+  { href: "/products", title: "Products" },
+  { href: "/sell", title: "Start sell" },
+];
+
+export const productsLinks = [
+  { href: "/products?category=Icons", title: "Icons" },
+  { href: "/products?category=Ui+Kits", title: "Ui Kits" },
+  { href: "/products?category=Illustration", title: "Illustration" },
 ];

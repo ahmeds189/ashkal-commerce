@@ -1,27 +1,7 @@
-import { Github, Shapes, Twitter, Linkedin } from "lucide-react";
+import { Shapes } from "lucide-react";
 import Link from "next/link";
 import NewsletterForm from "./newslettre";
-
-const socialLinks = [
-  { href: "https://github.com/ahmeds189", icon: Github },
-  { href: "https://twitter.com/ahmeddotgg", icon: Twitter },
-  {
-    href: "https://linkedin.com/in/ahmeds189",
-    icon: Linkedin,
-  },
-];
-
-const navLinks = [
-  { href: "/", title: "Home" },
-  { href: "/products", title: "Products" },
-  { href: "/sell", title: "Start sell" },
-];
-
-const productsLinks = [
-  { href: "/products?category=Icons", title: "Icons" },
-  { href: "/products?category=Ui+Kits", title: "Ui Kits" },
-  { href: "/products?category=Illustration", title: "Illustration" },
-];
+import { navLinks, productsLinks, socialLinks } from "@/lib/constants";
 
 export default function Footer() {
   return (
