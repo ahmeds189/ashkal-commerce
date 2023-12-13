@@ -7,9 +7,9 @@ export default function HomePage() {
     <div className="flex h-full flex-col gap-20">
       <Hero />
       <ProductReel
-        href="/"
+        href="/products"
         title="Featured products"
-        query={{ sort: "desc", limit: 4 }}
+        query={{ limit: 4 }}
       />
       <Overview />
     </div>
