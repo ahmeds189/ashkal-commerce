@@ -43,7 +43,7 @@ export interface Product {
   description: string;
   credit?: string | null;
   price: number;
-  category: 'ui_kits' | 'icons' | 'illustration' | 'wallpapers';
+  category: 'ui_kits' | 'icons' | 'illustration';
   product_files: string | ProductFile;
   approvedForSale?: ('pending' | 'approved' | 'rejected') | null;
   priceId?: string | null;

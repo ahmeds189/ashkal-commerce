@@ -13,18 +13,15 @@ export const PRODUCT_CATEGORIES = [
     featured: [
       {
         name: "Editor picks",
-        href: `/products?category=ui_kits`,
-        imageSrc: "/nav/ui-kits/mixed.jpg",
+        href: "/products?category=ui_kits",
       },
       {
         name: "New Arrivals",
         href: "/products?category=ui_kits&sort=desc",
-        imageSrc: "/nav/ui-kits/blue.jpg",
       },
       {
         name: "Bestsellers",
         href: "/products?category=ui_kits",
-        imageSrc: "/nav/ui-kits/purple.jpg",
       },
     ],
   },
@@ -34,18 +31,15 @@ export const PRODUCT_CATEGORIES = [
     featured: [
       {
         name: "Favorite Icon Picks",
-        href: `/products?category=icons`,
-        imageSrc: "/nav/icons/picks.jpg",
+        href: "/products?category=icons",
       },
       {
         name: "New Arrivals",
         href: "/products?category=icons&sort=desc",
-        imageSrc: "/nav/icons/new.jpg",
       },
       {
         name: "Bestselling Icons",
         href: "/products?category=icons",
-        imageSrc: "/nav/icons/bestsellers.jpg",
       },
     ],
   },
@@ -55,39 +49,15 @@ export const PRODUCT_CATEGORIES = [
     featured: [
       {
         name: "Favorite Illustration Picks",
-        href: `/products?category=illustrations`,
-        imageSrc: "/nav/icons/picks.jpg",
+        href: "/products?category=illustrations",
       },
       {
         name: "New Arrivals",
         href: "/products?category=illustrations&sort=desc",
-        imageSrc: "/nav/icons/new.jpg",
       },
       {
         name: "Bestselling Illustration",
         href: "/products?category=illustrations",
-        imageSrc: "/nav/icons/bestsellers.jpg",
-      },
-    ],
-  },
-  {
-    label: "Wallpapers",
-    value: "wallpapers" as const,
-    featured: [
-      {
-        name: "Favorite Wallpapers",
-        href: `/products?category=wallpapers`,
-        imageSrc: "/nav/icons/picks.jpg",
-      },
-      {
-        name: "New Arrivals",
-        href: "/products?category=wallpapers&sort=desc",
-        imageSrc: "/nav/icons/new.jpg",
-      },
-      {
-        name: "Bestselling Wallpapers",
-        href: "/products?category=wallpapers",
-        imageSrc: "/nav/icons/bestsellers.jpg",
       },
     ],
   },
