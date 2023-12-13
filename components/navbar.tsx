@@ -6,6 +6,7 @@ import { getUserSessionInfo } from "@/lib/utils";
 import { cookies } from "next/headers";
 import UserProfile from "./user-profile";
 import MobileNav from "./mobile-nav";
+import { NavigationMenuDemo } from "./categories-menu";
 
 export default async function Navbar() {
   const nextCookies = cookies();
@@ -18,6 +19,13 @@ export default async function Navbar() {
         <Link href="/" className="mr-auto">
           <Shapes className="block" size={38} />
         </Link>
+
+        <Link href="/products" className="text-sm font-medium">
+          Products
+        </Link>
+
+        <NavigationMenuDemo />
+
         <ul className="flex items-center gap-2">
           {user ? (
             <UserProfile user={user} />
