@@ -36,7 +36,7 @@ export function NavigationMenuDemo() {
             Categories
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="flex min-w-max flex-col">
+            <ul className="flex min-w-max flex-col p-2">
               {components.map((component) => (
                 <h1 key={component.title}>{component.title}</h1>
               ))}
