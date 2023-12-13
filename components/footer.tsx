@@ -76,7 +76,9 @@ export default function Footer() {
           <Link href="/" className="inline-block">
             <Shapes className="block" size={38} />
           </Link>
-          <p className="flex-1 whitespace-nowrap">&copy; Ashkal inc.</p>
+          <p className="flex-1 whitespace-nowrap">
+            &copy; Ashkal inc {new Date().getFullYear()}.
+          </p>
           <ul className="flex items-center gap-4">
             {socialLinks.map((link) => (
               <li key={link.href}>
