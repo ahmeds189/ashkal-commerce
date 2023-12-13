@@ -48,3 +48,60 @@ export const productsLinks = [
   { href: "/products?category=Ui+Kits", title: "Ui Kits" },
   { href: "/products?category=Illustration", title: "Illustration" },
 ];
+
+export const PRODUCT_CATEGORIES = [
+  {
+    label: "UI Kits",
+    value: "ui_kits" as const,
+    featured: [
+      {
+        name: "Editor picks",
+        href: "/products?category=ui_kits",
+      },
+      {
+        name: "New Arrivals",
+        href: "/products?category=ui_kits&sort=desc",
+      },
+      {
+        name: "Bestsellers",
+        href: "/products?category=ui_kits",
+      },
+    ],
+  },
+  {
+    label: "Icons",
+    value: "icons" as const,
+    featured: [
+      {
+        name: "Favorite Icon Picks",
+        href: "/products?category=icons",
+      },
+      {
+        name: "New Arrivals",
+        href: "/products?category=icons&sort=desc",
+      },
+      {
+        name: "Bestselling Icons",
+        href: "/products?category=icons",
+      },
+    ],
+  },
+  {
+    label: "Illustration",
+    value: "illustration" as const,
+    featured: [
+      {
+        name: "Favorite Illustration Picks",
+        href: "/products?category=illustrations",
+      },
+      {
+        name: "New Arrivals",
+        href: "/products?category=illustrations&sort=desc",
+      },
+      {
+        name: "Bestselling Illustration",
+        href: "/products?category=illustrations",
+      },
+    ],
+  },
+];

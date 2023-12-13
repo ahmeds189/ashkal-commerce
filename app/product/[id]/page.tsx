@@ -1,4 +1,4 @@
-import { PRODUCT_CATEGORIES } from "@/server/collections/products";
+import { PRODUCT_CATEGORIES } from "@/lib/constants";
 import AddToCart from "@/components/add-to-cart";
 import ImageSlider from "@/components/image-slider";
 import { formatPrice } from "@/lib/utils";

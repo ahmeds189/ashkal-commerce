@@ -5,63 +5,7 @@ import {
 import { Access, CollectionConfig } from "payload/types";
 import { Product, User } from "../payload-types";
 import { stripe } from "../../lib/stripe";
-
-export const PRODUCT_CATEGORIES = [
-  {
-    label: "UI Kits",
-    value: "ui_kits" as const,
-    featured: [
-      {
-        name: "Editor picks",
-        href: "/products?category=ui_kits",
-      },
-      {
-        name: "New Arrivals",
-        href: "/products?category=ui_kits&sort=desc",
-      },
-      {
-        name: "Bestsellers",
-        href: "/products?category=ui_kits",
-      },
-    ],
-  },
-  {
-    label: "Icons",
-    value: "icons" as const,
-    featured: [
-      {
-        name: "Favorite Icon Picks",
-        href: "/products?category=icons",
-      },
-      {
-        name: "New Arrivals",
-        href: "/products?category=icons&sort=desc",
-      },
-      {
-        name: "Bestselling Icons",
-        href: "/products?category=icons",
-      },
-    ],
-  },
-  {
-    label: "Illustration",
-    value: "illustration" as const,
-    featured: [
-      {
-        name: "Favorite Illustration Picks",
-        href: "/products?category=illustrations",
-      },
-      {
-        name: "New Arrivals",
-        href: "/products?category=illustrations&sort=desc",
-      },
-      {
-        name: "Bestselling Illustration",
-        href: "/products?category=illustrations",
-      },
-    ],
-  },
-];
+import { PRODUCT_CATEGORIES } from "@/lib/constants";
 
 const addUser: BeforeChangeHook<Product> = async ({ req: { user }, data }) => {
   return { ...data, user: user.id };
