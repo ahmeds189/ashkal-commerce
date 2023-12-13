@@ -1,14 +1,6 @@
-import {
-  ArrowRight,
-  Facebook,
-  Github,
-  Shapes,
-  Twitter,
-  Linkedin,
-} from "lucide-react";
+import { Github, Shapes, Twitter, Linkedin } from "lucide-react";
 import Link from "next/link";
-import { Input } from "./ui/input";
-import { Button } from "./ui/button";
+import NewsletterForm from "./newslettre";
 
 const socialLinks = [
   { href: "https://github.com/ahmeds189", icon: Github },
@@ -40,12 +32,7 @@ export default function Footer() {
             <p className="text-lg font-semibold md:text-2xl">
               Subscribe to our newsletter
             </p>
-            <div className="flex gap-2 sm:max-w-sm">
-              <Input placeholder="Your email" />
-              <Button className="w-12" size="icon">
-                <ArrowRight />
-              </Button>
-            </div>
+            <NewsletterForm />
           </div>
           <div className="flex gap-10 md:justify-end">
             <div className="flex w-min flex-col space-y-4 font-medium text-muted-foreground">
