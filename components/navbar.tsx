@@ -5,6 +5,7 @@ import Cart from "./cart";
 import { getUserSessionInfo } from "@/lib/utils";
 import { cookies } from "next/headers";
 import UserProfile from "./user-profile";
+import MobileNav from "./mobile-nav";
 
 export default async function Navbar() {
   const nextCookies = cookies();
@@ -13,6 +14,7 @@ export default async function Navbar() {
   return (
     <nav className="sticky inset-0 z-50 py-3.5 shadow-sm backdrop-blur-md dark:border-b">
       <div className="container flex items-center gap-2">
+        <MobileNav isAuth={user} />
         <Link href="/" className="mr-auto">
           <Shapes className="block" size={38} />
         </Link>
@@ -21,7 +23,7 @@ export default async function Navbar() {
             <UserProfile user={user} />
           ) : (
             <>
-              <li>
+              <li className="hidden md:block">
                 <Link
                   href="/sign-in"
                   className={buttonVariants({ size: "sm", variant: "ghost" })}
@@ -29,7 +31,7 @@ export default async function Navbar() {
                   Sign in
                 </Link>
               </li>
-              <li>
+              <li className="hidden md:block">
                 <Link
                   href="/sign-up"
                   className={buttonVariants({ size: "sm", variant: "ghost" })}
