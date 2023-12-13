@@ -6,20 +6,33 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import * as React from "react";
 import { buttonVariants } from "./ui/button";
+import { PRODUCT_CATEGORIES } from "@/lib/constants";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
-const components = [
-  {
-    title: "Alert Dialog",
-  },
-  {
-    title: "Hover Card",
-  },
-  {
-    title: "Progress",
-  },
-];
+function CategoryItem({
+  imgPath,
+  title,
+  href,
+}: {
+  imgPath?: string;
+  title: string;
+  href: string;
+}) {
+  return (
+    <div className="min-w-max">
+      <h2 className="font-medium">{title}</h2>
+      <Link
+        href={href}
+        className="text-sm font-medium text-muted-foreground underline-offset-4 hover:text-blue-500 hover:underline"
+      >
+        Shop now
+        <ArrowRight size={16} className="ml-1 inline-block" />
+      </Link>
+    </div>
+  );
+}
 
 export function NavigationMenuDemo() {
   return (
@@ -30,15 +43,20 @@ export function NavigationMenuDemo() {
             className={buttonVariants({
               size: "sm",
               variant: "ghost",
-              className: "bg-transparent",
+              className:
+                "bg-transparent hover:bg-transparent hover:text-blue-500",
             })}
           >
             Categories
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="flex min-w-max flex-col p-2">
-              {components.map((component) => (
-                <h1 key={component.title}>{component.title}</h1>
+            <ul className="p-4">
+              {PRODUCT_CATEGORIES.map((category) => (
+                <CategoryItem
+                  title={category.label}
+                  key={category.label}
+                  href="/"
+                />
               ))}
             </ul>
           </NavigationMenuContent>
