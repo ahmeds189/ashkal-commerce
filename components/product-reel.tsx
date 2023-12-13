@@ -4,7 +4,6 @@ import { Product } from "@/server/payload-types";
 import { trpc } from "@/server/trpc/client";
 import ProductCard from "./product-card";
 import Link from "next/link";
-import { buttonVariants } from "./ui/button";
 import { ArrowRight } from "lucide-react";
 
 type Props = {
@@ -30,7 +29,7 @@ export default function ProductReel(props: Props) {
   if (products && products.length) {
     mapedProducts = products;
   } else if (isLoading) {
-    mapedProducts = new Array<null>(query.limit ?? 4).fill(null);
+    mapedProducts = new Array<null>(4).fill(null);
   }
 
   return (
