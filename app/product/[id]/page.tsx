@@ -47,7 +47,7 @@ export default async function ProductPage({ params }: Props) {
     .filter(Boolean) as string[];
 
   return (
-    <div className="container mt-20">
+    <div className="container my-20">
       <ol className="mb-8 flex gap-1 text-sm font-medium text-muted-foreground">
         {BREADCRUMBS.map((breadcrumb, index) => (
           <li key={breadcrumb.href}>

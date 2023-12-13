@@ -40,7 +40,7 @@ export default async function ThankyouPage({ searchParams }: Props) {
   }
 
   return (
-    <div className="container mt-20 flex flex-col gap-4">
+    <div className="container my-20 flex flex-col gap-4">
       <Image
         src="/received-order.png"
         alt="order confirmed"

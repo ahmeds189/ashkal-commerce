@@ -10,7 +10,7 @@ export default function VerifyEmailPage({ searchParams }: Props) {
   const toEmail = searchParams.to;
 
   return (
-    <div className="container mt-20">
+    <div className="container py-20">
       {token && typeof token === "string" ? (
         <VerifyEmail token={token} />
       ) : (

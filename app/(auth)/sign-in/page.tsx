@@ -11,7 +11,7 @@ export default function SigninPage() {
   const isSeller = searchParams.get("as") === "seller";
 
   return (
-    <div className="container pt-20 text-center">
+    <div className="container py-20 text-center">
       <Shapes className="mb-5 inline-block" size={60} />
 
       <h1 className="text-2xl font-bold">
