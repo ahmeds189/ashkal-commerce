@@ -49,7 +49,7 @@ export const productsLinks = [
   { href: "/products?category=Illustration", title: "Illustration" },
 ];
 
-export const PRODUCT_CATEGORIES = [
+export const productsCategories = [
   {
     label: "UI Kits",
     value: "ui_kits" as const,

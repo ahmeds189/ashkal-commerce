@@ -5,7 +5,7 @@ import {
 import { Access, CollectionConfig } from "payload/types";
 import { Product, User } from "../payload-types";
 import { stripe } from "../../lib/stripe";
-import { PRODUCT_CATEGORIES } from "../../lib/constants";
+import { productsCategories } from "../../lib/constants";
 
 const addUser: BeforeChangeHook<Product> = async ({ req: { user }, data }) => {
   return { ...data, user: user.id };
@@ -164,7 +164,7 @@ export const Products: CollectionConfig = {
       name: "category",
       label: "Category",
       type: "select",
-      options: PRODUCT_CATEGORIES.map(({ label, value }) => ({ label, value })),
+      options: productsCategories.map(({ label, value }) => ({ label, value })),
       required: true,
     },
     {

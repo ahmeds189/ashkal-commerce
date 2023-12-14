@@ -1,7 +1,7 @@
 import { Shapes } from "lucide-react";
 import Link from "next/link";
 import NewsletterForm from "./newslettre";
-import { navLinks, productsLinks, socialLinks } from "@/lib/constants";
+import { navLinks, socialLinks, productsLinks } from "@/lib/constants";
 
 export default function Footer() {
   return (

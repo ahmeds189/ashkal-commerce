@@ -1,4 +1,3 @@
-import { PRODUCT_CATEGORIES } from "@/lib/constants";
 import AddToCart from "@/components/add-to-cart";
 import ImageSlider from "@/components/image-slider";
 import { formatPrice } from "@/lib/utils";
@@ -37,10 +36,6 @@ export default async function ProductPage({ params }: Props) {
 
   const [product] = docs;
   if (!product) return notFound();
-
-  const productLabel = PRODUCT_CATEGORIES.find(
-    ({ value }) => value === product.category,
-  )?.label;
 
   const imagesUrls = product.images
     .map(({ image }) => (typeof image === "string" ? image : image.url))

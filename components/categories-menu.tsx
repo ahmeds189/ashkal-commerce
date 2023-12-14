@@ -7,7 +7,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { buttonVariants } from "./ui/button";
-import { PRODUCT_CATEGORIES } from "@/lib/constants";
+import { productsLinks } from "@/lib/constants";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -51,12 +51,8 @@ export function CategoriesMenu() {
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="p-4">
-              {PRODUCT_CATEGORIES.map((category) => (
-                <CategoryItem
-                  title={category.label}
-                  key={category.label}
-                  href="/"
-                />
+              {productsLinks.map((link, i) => (
+                <CategoryItem title={link.title} key={i} href={link.href} />
               ))}
             </ul>
           </NavigationMenuContent>
