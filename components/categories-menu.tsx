@@ -10,18 +10,20 @@ import { buttonVariants } from "./ui/button";
 import { productsLinks } from "@/lib/constants";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 function CategoryItem({
   imgPath,
   title,
   href,
 }: {
-  imgPath?: string;
+  imgPath: string;
   title: string;
   href: string;
 }) {
   return (
-    <div className="min-w-max">
+    <div className="relative space-y-3">
+      <Image src={imgPath} alt={title} className="rounded-lg" fill />
       <h2 className="font-medium">{title}</h2>
       <Link
         href={href}
@@ -50,9 +52,14 @@ export function CategoriesMenu() {
             Categories
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="p-4">
+            <ul className="min-w-max p-2">
               {productsLinks.map((link, i) => (
-                <CategoryItem title={link.title} key={i} href={link.href} />
+                <CategoryItem
+                  title={link.title}
+                  key={i}
+                  href={link.href}
+                  imgPath={link.imgPath}
+                />
               ))}
             </ul>
           </NavigationMenuContent>

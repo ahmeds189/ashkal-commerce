@@ -44,9 +44,13 @@ export const navLinks = [
 ];
 
 export const productsLinks = [
-  { href: "/products?category=Icons", title: "Icons" },
-  { href: "/products?category=Ui+Kits", title: "Ui Kits" },
-  { href: "/products?category=Illustration", title: "Illustration" },
+  { href: "/products?category=Icons", title: "Icons", imgPath: "/icons.webp" },
+  { href: "/products?category=Ui+Kits", title: "Ui Kits", imgPath: "/ui.webp" },
+  {
+    href: "/products?category=Illustration",
+    title: "Illustration",
+    imgPath: "/illustration.webp",
+  },
 ];
 
 export const productsCategories = [
