@@ -36,7 +36,7 @@ export function VerifyEmail({ actionLabel, buttonText, href }: Props) {
           <Container className="max-w-lg rounded-xl border border-solid border-gray-200 bg-white p-10">
             <Section>
               <Img
-                src={`${process.env.NEXT_PUBLIC_SERVER_URL}/logo.svg`}
+                src={`${process.env.NEXT_PUBLIC_SERVER_URL}/logo.png`}
                 width="75"
                 height="75"
                 alt="Ashkal"
