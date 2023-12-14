@@ -6,7 +6,7 @@ import { getUserSessionInfo } from "@/lib/utils";
 import { cookies } from "next/headers";
 import UserProfile from "./user-profile";
 import MobileNav from "./mobile-nav";
-import { NavigationMenuDemo } from "./categories-menu";
+import { CategoriesMenu } from "./categories-menu";
 
 export default async function Navbar() {
   const nextCookies = cookies();
@@ -17,18 +17,11 @@ export default async function Navbar() {
       <div className="container flex items-center gap-2">
         <MobileNav isAuth={user} />
 
-        <Link href="/" className="mr-auto">
+        <Link href="/">
           <Shapes className="block" size={38} />
         </Link>
 
-        <NavigationMenuDemo />
-
-        <Link
-          href="/products"
-          className="hidden text-sm font-medium transition hover:text-blue-500 sm:block"
-        >
-          Products
-        </Link>
+        <CategoriesMenu />
 
         {user ? (
           <UserProfile user={user} />

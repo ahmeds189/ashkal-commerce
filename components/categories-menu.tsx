@@ -34,9 +34,9 @@ function CategoryItem({
   );
 }
 
-export function NavigationMenuDemo() {
+export function CategoriesMenu() {
   return (
-    <NavigationMenu>
+    <NavigationMenu className="mr-auto">
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger
