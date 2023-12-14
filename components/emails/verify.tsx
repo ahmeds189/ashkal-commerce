@@ -14,7 +14,11 @@ import {
   Heading,
   Tailwind,
 } from "@react-email/components";
+import path from "path";
 import * as React from "react";
+import dotenv from "dotenv";
+
+dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 
 type Props = {
   actionLabel: string;
@@ -28,14 +32,14 @@ export function VerifyEmail({ actionLabel, buttonText, href }: Props) {
       <Head />
       <Preview>The marketplace for high-quality digital goods.</Preview>
       <Tailwind>
-        <Body className="bg-amber-50 py-8 font-sans font-semibold text-foreground">
-          <Container className="max-w-lg rounded-xl border border-solid border-border bg-white p-10 shadow-lg">
+        <Body className="bg-white py-8 font-sans font-semibold text-zinc-800">
+          <Container className="max-w-lg rounded-xl border border-solid border-gray-200 bg-white p-10">
             <Section>
               <Img
-                src="/logo.svg"
+                src={`${process.env.NEXT_PUBLIC_SERVER_URL}/logo.svg`}
                 width="75"
                 height="75"
-                alt="Vercel"
+                alt="Ashkal"
                 className="mx-auto rounded-xl"
               />
               <Heading className="text-center text-3xl">
@@ -43,7 +47,7 @@ export function VerifyEmail({ actionLabel, buttonText, href }: Props) {
               </Heading>
             </Section>
 
-            <Hr className="my-7 border border-solid border-border" />
+            <Hr className="my-7 border border-solid border-gray-200" />
 
             <Section>
               <Text>Hello there,</Text>
@@ -53,7 +57,7 @@ export function VerifyEmail({ actionLabel, buttonText, href }: Props) {
               </Text>
               <Button
                 href={href}
-                className="rounded-lg bg-[#6566ff] px-5 py-3 text-white"
+                className="rounded-lg bg-[#6566ff] px-5 py-3 font-bold text-white"
               >
                 {buttonText}
               </Button>
@@ -98,9 +102,9 @@ export function VerifyEmail({ actionLabel, buttonText, href }: Props) {
               </Link>
             </Section>
 
-            <Hr className="my-7 border border-solid border-border" />
+            <Hr className="my-7 border border-solid border-gray-200" />
 
-            <Text className="text-sm text-muted-foreground">
+            <Text className="text-sm text-gray-500">
               If you didn't request this email, there's nothing to worry about -
               you can safely ignore it.
             </Text>
