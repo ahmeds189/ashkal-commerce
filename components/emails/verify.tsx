@@ -15,10 +15,6 @@ import {
   Tailwind,
 } from "@react-email/components";
 import * as React from "react";
-import { Inter } from "next/font/google";
-import { cn } from "@/lib/utils";
-
-const inter = Inter({ subsets: ["latin"] });
 
 type Props = {
   actionLabel: string;
@@ -32,12 +28,7 @@ export function VerifyEmail({ actionLabel, buttonText, href }: Props) {
       <Head />
       <Preview>The marketplace for high-quality digital goods.</Preview>
       <Tailwind>
-        <Body
-          className={cn(
-            inter.className,
-            "bg-amber-50 py-8 font-semibold text-foreground",
-          )}
-        >
+        <Body className="bg-amber-50 py-8 font-sans font-semibold text-foreground">
           <Container className="max-w-lg rounded-xl border border-solid border-border bg-white p-10 shadow-lg">
             <Section>
               <Img
