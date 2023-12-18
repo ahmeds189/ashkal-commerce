@@ -4,6 +4,7 @@ import { Skeleton } from "./ui/skeleton";
 import Link from "next/link";
 import { formatPrice, truncate } from "@/lib/utils";
 import ImageSlider from "./image-slider";
+import Image from "next/image";
 
 type Props = {
   product: Product | null;
@@ -19,14 +20,16 @@ export default function ProductCard({ product }: Props) {
 
   if (product)
     return (
-      <Link href={`/product/${product.id}`} className="block space-y-2">
-        <ImageSlider
-          productName={product.name}
-          urls={imagesUrls}
-          className="aspect-square"
+      <Link href={`/product/${product.id}`} className="space-y-2">
+        <Image
+          src="/icons.webp"
+          alt="Product 1"
+          className="w-full rounded-xl object-cover shadow-xl dark:shadow-none"
+          width={400}
+          height={300}
         />
         <h3>{truncate(product.name, 24)}</h3>
-        <p className="font-semibold">{formatPrice(product.price)}</p>
+        <h4 className="font-semibold">{formatPrice(product.price)}</h4>
       </Link>
     );
 }
