@@ -38,7 +38,7 @@ export default function Cart() {
       <SheetTrigger asChild>
         <Button variant="ghost" size="sm" className="relative">
           <ShoppingBag />
-          <span className="absolute right-0 top-0 h-5 w-5 rounded-full bg-blue-500 text-sm">
+          <span className="absolute right-0 top-0 h-5 w-5 rounded-full bg-blue-500 text-sm text-white">
             {isMouted && items.length}
           </span>
         </Button>
