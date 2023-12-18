@@ -15,7 +15,7 @@ export default async function Navbar() {
 
   return (
     <nav className="sticky inset-0 z-50 py-3.5 shadow-sm backdrop-blur-md dark:border-b">
-      <div className="container flex items-center gap-1">
+      <div className="container flex items-center gap-1 sm:gap-2 md:gap-3">
         <MobileNav isAuth={user} />
 
         <Link href="/" className="xs:mr-0 mr-auto">
@@ -27,7 +27,7 @@ export default async function Navbar() {
         {user ? (
           <UserProfile user={user} />
         ) : (
-          <ul className="hidden items-center gap-2 text-sm font-medium md:flex">
+          <ul className="hidden items-center gap-3 text-sm font-medium md:flex">
             <li>
               <Link href="/sign-in" className=" transition hover:text-blue-500">
                 Sign in
