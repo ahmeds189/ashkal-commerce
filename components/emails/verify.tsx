@@ -14,11 +14,7 @@ import {
   Heading,
   Tailwind,
 } from "@react-email/components";
-import path from "path";
 import * as React from "react";
-import dotenv from "dotenv";
-
-dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 
 type Props = {
   actionLabel: string;
@@ -36,9 +32,9 @@ export function VerifyEmail({ actionLabel, buttonText, href }: Props) {
           <Container className="max-w-lg rounded-xl border border-solid border-gray-200 bg-white p-10">
             <Section>
               <Img
-                src={`${process.env.NEXT_PUBLIC_SERVER_URL}/logo.png`}
-                width="75"
-                height="75"
+                src="https://res.cloudinary.com/duzqpx4rn/image/upload/f_auto,q_auto/xhsaii40inxdcb25rc5i"
+                width="80"
+                height="80"
                 alt="Ashkal"
                 className="mx-auto rounded-xl"
               />
