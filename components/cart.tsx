@@ -44,7 +44,7 @@ export default function Cart() {
         </Button>
       </SheetTrigger>
       <SheetContent className="flex flex-col">
-        <SheetHeader className="text-start">
+        <SheetHeader className="-translate-y-3 text-start">
           <SheetTitle>cart items ({items.length})</SheetTitle>
           <Separator />
         </SheetHeader>
