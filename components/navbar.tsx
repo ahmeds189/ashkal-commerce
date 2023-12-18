@@ -6,7 +6,6 @@ import { getUserSessionInfo } from "@/lib/utils";
 import { cookies } from "next/headers";
 import UserProfile from "./user-profile";
 import MobileNav from "./mobile-nav";
-import { CategoriesMenu } from "./categories-menu";
 import { ThemeToggle } from "./theme-toggle";
 
 export default async function Navbar() {
@@ -18,11 +17,9 @@ export default async function Navbar() {
       <div className="container flex items-center gap-1 sm:gap-2 md:gap-3">
         <MobileNav isAuth={user} />
 
-        <Link href="/" className="xs:mr-0 mr-auto">
+        <Link href="/" className="mr-auto">
           <Shapes className="block" size={30} />
         </Link>
-
-        <CategoriesMenu />
 
         {user ? (
           <UserProfile user={user} />
