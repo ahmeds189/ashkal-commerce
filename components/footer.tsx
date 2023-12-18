@@ -39,7 +39,7 @@ export default function Footer() {
             </div>
           </div>
         </section>
-        <section className="flex flex-wrap items-center gap-4">
+        <section className="flex flex-wrap items-end gap-4">
           <Link href="/" className="inline-block">
             <Shapes className="block" size={38} />
           </Link>
