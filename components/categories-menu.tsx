@@ -38,7 +38,7 @@ function CategoryItem({
 
 export function CategoriesMenu() {
   return (
-    <NavigationMenu className="mr-auto">
+    <NavigationMenu className="xs:flex mr-auto hidden">
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger

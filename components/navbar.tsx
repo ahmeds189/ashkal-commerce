@@ -7,6 +7,7 @@ import { cookies } from "next/headers";
 import UserProfile from "./user-profile";
 import MobileNav from "./mobile-nav";
 import { CategoriesMenu } from "./categories-menu";
+import { ThemeToggle } from "./theme-toggle";
 
 export default async function Navbar() {
   const nextCookies = cookies();
@@ -14,11 +15,11 @@ export default async function Navbar() {
 
   return (
     <nav className="sticky inset-0 z-50 py-3.5 shadow-sm backdrop-blur-md dark:border-b">
-      <div className="container flex items-center gap-2">
+      <div className="container flex items-center gap-1">
         <MobileNav isAuth={user} />
 
-        <Link href="/">
-          <Shapes className="block" size={38} />
+        <Link href="/" className="xs:mr-0 mr-auto">
+          <Shapes className="block" size={30} />
         </Link>
 
         <CategoriesMenu />
@@ -40,6 +41,7 @@ export default async function Navbar() {
           </ul>
         )}
 
+        <ThemeToggle />
         <Cart />
       </div>
     </nav>
