@@ -8,9 +8,10 @@ export default function Hero() {
         Your marketplace for heigh quality&nbsp;
         <span className="text-blue-600">digital assets.</span>
       </h1>
-      <p className="mx-auto mb-8 max-w-sm text-muted-foreground">
-        Welcome to Ashkal, every asset on our platform is verified by our team
-        to ensure our highest quality standards.
+      <p className="mx-auto mb-8 max-w-md text-sm text-muted-foreground">
+        Unleash your creativity, explore the language of shapes, and let Ashkal
+        be the canvas for your digital expressions. Welcome to a world where
+        design shapes inspiration.
       </p>
       <Link
         href="products"
