@@ -6,6 +6,7 @@ import { type PropsWithChildren, useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { trpc } from "@/server/trpc/client";
 import { httpBatchLink } from "@trpc/client";
+import { useEffectOnce } from "usehooks-ts";
 
 function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
@@ -34,6 +35,15 @@ export default function Providers({ children }: PropsWithChildren) {
       ],
     }),
   );
+  const [isMouted, setIsMounted] = useState(false);
+
+  useEffectOnce(() => {
+    setIsMounted(true);
+  });
+
+  if (!isMouted) {
+    return null;
+  }
 
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>

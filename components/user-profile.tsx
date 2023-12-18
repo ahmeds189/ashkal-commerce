@@ -16,6 +16,7 @@ import useAuth from "@/hooks/useAuth";
 
 export default function UserProfile({ user }: { user: User }) {
   const { signOut } = useAuth();
+
   return (
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
