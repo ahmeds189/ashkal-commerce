@@ -1,11 +1,12 @@
 import AddToCart from "@/components/add-to-cart";
 import ImageSlider from "@/components/image-slider";
-import { formatPrice } from "@/lib/utils";
+import { formatPrice, getProcuctDetails } from "@/lib/utils";
 import { getPayloadClient } from "@/server/get-payload";
 import { ChevronRight, Link2, Shield } from "lucide-react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import ProductReel from "@/components/product-reel";
+import { Badge } from "@/components/ui/badge";
 
 type Props = {
   params: { id: string };
@@ -37,9 +38,7 @@ export default async function ProductPage({ params }: Props) {
   const [product] = docs;
   if (!product) return notFound();
 
-  const imagesUrls = product.images
-    .map(({ image }) => (typeof image === "string" ? image : image.url))
-    .filter(Boolean) as string[];
+  const { imagesUrls, label } = getProcuctDetails(product);
 
   return (
     <div className="container my-20">
@@ -58,12 +57,8 @@ export default async function ProductPage({ params }: Props) {
       </ol>
 
       <div className="flex flex-col gap-8 md:flex-row">
-        <div className="mx-auto w-full space-y-4 md:max-w-md md:basis-1/2 ">
-          <ImageSlider
-            productName={product.name}
-            urls={imagesUrls}
-            className="aspect-video md:aspect-square"
-          />
+        <div className="mx-auto w-full max-w-md space-y-4 md:basis-1/2 ">
+          <ImageSlider productName={product.name} urls={imagesUrls} />
           <AddToCart product={product} />
           <p className="text-center text-sm text-muted-foreground">
             <Shield size={18} className="inline-block" /> 30 days money back
@@ -76,6 +71,9 @@ export default async function ProductPage({ params }: Props) {
           <p className="mb-3 text-sm text-muted-foreground">
             {product.description}
           </p>
+          <Badge className="mb-3 cursor-default bg-emerald-200 text-emerald-600 hover:bg-emerald-200">
+            {label}
+          </Badge>
           <p className="mb-5 text-lg font-semibold">
             {formatPrice(product.price)}
           </p>

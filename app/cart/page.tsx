@@ -41,7 +41,7 @@ export default function CartPage() {
   return (
     <div className="container mt-20 h-full">
       <h1 className="mb-10 text-2xl font-bold">Check out</h1>
-      <div className="flex flex-col gap-8 md:flex-row">
+      <div className="flex flex-col gap-10 md:flex-row">
         {isMouted && items.length > 0 ? (
           <>
             <section className="basis-1/2">

@@ -14,11 +14,9 @@ import { cn } from "@/lib/utils";
 
 export default function ImageSlider({
   urls,
-  className = "aspect-square",
   productName,
 }: {
   urls: string[];
-  className: string;
   productName: string;
 }) {
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
@@ -39,7 +37,7 @@ export default function ImageSlider({
   }, [swiper, urls]);
 
   return (
-    <div className="group relative">
+    <div className="group relative overflow-hidden rounded-xl">
       <div className="absolute inset-0 z-10 flex h-full w-full items-center justify-between px-1">
         <Button
           aria-label="previous image"
@@ -82,15 +80,13 @@ export default function ImageSlider({
         }}
       >
         {urls.map((url, i) => (
-          <SwiperSlide key={i} className={`relative ${className}`}>
+          <SwiperSlide key={i}>
             <Image
               src={url}
               alt={productName}
-              fill
-              loading="eager"
-              priority
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="rounded-xl object-cover"
+              width={400}
+              height={400}
+              className="w-full"
             />
           </SwiperSlide>
         ))}

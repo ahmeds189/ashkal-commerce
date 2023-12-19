@@ -1,6 +1,5 @@
 import { Shapes } from "lucide-react";
 import Link from "next/link";
-import { buttonVariants } from "./ui/button";
 import Cart from "./cart";
 import { getUserSessionInfo } from "@/lib/utils";
 import { cookies } from "next/headers";
@@ -18,7 +17,7 @@ export default async function Navbar() {
         <MobileNav isAuth={user} />
 
         <Link href="/" className="mr-auto">
-          <Shapes className="block" size={30} />
+          <Shapes className="block h-8 w-8 sm:h-10 sm:w-10" />
         </Link>
 
         {user ? (
