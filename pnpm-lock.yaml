@@ -6,6 +6,7 @@ settings:
 
 overrides:
   cliui: 7.0.2
+  graphql: 16.8.1
 
 dependencies:
   '@hookform/resolvers':
@@ -6232,7 +6233,7 @@ packages:
     resolution: {integrity: sha512-yrItPfHj5WeT4n7iusbVin+vGSQjXFAX6U/GnYytdCJRXVad1TWGtYFDZ2ROjCKpXQzIwvfbiWCEwfuXgR3B6A==}
     engines: {node: '>=12'}
     peerDependencies:
-      graphql: '>=0.11 <=16'
+      graphql: 16.8.1
     dependencies:
       graphql: 16.8.1
     dev: false
@@ -6255,7 +6256,7 @@ packages:
   /graphql-query-complexity@0.12.0(graphql@16.8.1):
     resolution: {integrity: sha512-fWEyuSL6g/+nSiIRgIipfI6UXTI7bAxrpPlCY1c0+V3pAEUo1ybaKmSBgNr1ed2r+agm1plJww8Loig9y6s2dw==}
     peerDependencies:
-      graphql: ^14.6.0 || ^15.0.0 || ^16.0.0
+      graphql: 16.8.1
     dependencies:
       graphql: 16.8.1
       lodash.get: 4.4.2
@@ -6265,7 +6266,7 @@ packages:
     resolution: {integrity: sha512-my9FB4GtghqXqi/lWSVAOPiTzTnnEzdOXCsAC2bb5V7EFNQjVjwy3cSSbUvgYOtDuDibd+ZsCDhz+4eykYOlhQ==}
     engines: {node: '>=10'}
     peerDependencies:
-      graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+      graphql: 16.8.1
     dependencies:
       graphql: 16.8.1
       tslib: 2.6.2
@@ -6274,7 +6275,7 @@ packages:
   /graphql-type-json@0.3.2(graphql@16.8.1):
     resolution: {integrity: sha512-J+vjof74oMlCWXSvt0DOf2APEdZOCdubEvGDUAlqH//VBYcOYsGgRW7Xzorr44LvkjiuvecWc8fChxuZZbChtg==}
     peerDependencies:
-      graphql: '>=0.8.0'
+      graphql: 16.8.1
     dependencies:
       graphql: 16.8.1
     dev: false
