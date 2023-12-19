@@ -1,17 +1,11 @@
-import { WebhookRequest } from "../server";
 import express from "express";
-import { stripe } from "./stripe";
+import { WebhookRequest } from "../server";
+import { stripe } from "../lib/stripe";
 import type Stripe from "stripe";
 import { getPayloadClient } from "../server/get-payload";
 import { Product } from "../server/payload-types";
 import { Resend } from "resend";
 import { ReceiptEmailHtml } from "../components/emails/receipt";
-import path from "path";
-import dotenv from "dotenv";
-
-dotenv.config({
-  path: path.resolve(__dirname, "../.env"),
-});
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -74,7 +68,7 @@ export const stripeWebhookHandler = async (
 
     const [order] = orders;
 
-    if (!user) return res.status(404).json({ error: "No such order exists." });
+    if (!order) return res.status(404).json({ error: "No such order exists." });
 
     await payload.update({
       collection: "orders",
@@ -91,7 +85,7 @@ export const stripeWebhookHandler = async (
     // send receipt
     try {
       const data = await resend.emails.send({
-        from: "Ashkal <hello@joshtriedcoding.com>",
+        from: "DigitalHippo <hello@joshtriedcoding.com>",
         to: [user.email],
         subject: "Thanks for your order! This is your receipt.",
         html: ReceiptEmailHtml({

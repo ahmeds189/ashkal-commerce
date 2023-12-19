@@ -8,14 +8,17 @@ import type Stripe from "stripe";
 export const PaymentRouter = router({
   createSession: privateProcedure
     .input(z.object({ productIds: z.array(z.string()) }))
-    .mutation(async ({ ctx: { user }, input }) => {
+    .mutation(async ({ ctx, input }) => {
+      const { user } = ctx;
       let { productIds } = input;
 
-      if (!productIds.length) throw new TRPCError({ code: "BAD_REQUEST" });
+      if (productIds.length === 0) {
+        throw new TRPCError({ code: "BAD_REQUEST" });
+      }
 
       const payload = await getPayloadClient();
 
-      const { docs } = await payload.find({
+      const { docs: products } = await payload.find({
         collection: "products",
         where: {
           id: {
@@ -24,25 +27,26 @@ export const PaymentRouter = router({
         },
       });
 
-      const filterdProducts = docs.filter((product) => Boolean(product.id));
+      const filteredProducts = products.filter((prod) => Boolean(prod.priceId));
 
       const order = await payload.create({
         collection: "orders",
         data: {
           _isPaid: false,
-          products: filterdProducts.map((product) => product.id),
+          products: filteredProducts.map((prod) => prod.id),
           user: user.id,
         },
       });
 
       const line_items: Stripe.Checkout.SessionCreateParams.LineItem[] = [];
 
-      filterdProducts.forEach((product) =>
+      filteredProducts.forEach((product) => {
         line_items.push({
           price: product.priceId!,
           quantity: 1,
-        }),
-      );
+        });
+      });
+
       line_items.push({
         price: "price_1OKb8CJwpqqInkH7wK9rIdWR",
         quantity: 1,
@@ -66,7 +70,6 @@ export const PaymentRouter = router({
 
         return { url: stripeSession.url };
       } catch (error) {
-        console.log(error);
         return { url: null };
       }
     }),

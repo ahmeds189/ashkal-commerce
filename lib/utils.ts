@@ -4,13 +4,10 @@ import { type ClassValue, clsx } from "clsx";
 import { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
 import { NextRequest } from "next/server";
 import { twMerge } from "tailwind-merge";
+import { productsCategories } from "./constants";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
-}
-
-export function truncate(str: string, n: number) {
-  return str.length > n ? str.slice(0, n - 1) + "..." : str;
 }
 
 export function formatPrice(
@@ -89,4 +86,16 @@ export function constructMetadata({
       },
     }),
   };
+}
+
+export function getProcuctDetails(product: Product | null) {
+  const label = productsCategories.find(
+    ({ value }) => value === product?.category,
+  )?.label;
+
+  const imagesUrls = product?.images
+    .map(({ image }) => (typeof image === "string" ? image : image.url))
+    .filter(Boolean) as string[];
+
+  return { label, imagesUrls };
 }
