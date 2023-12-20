@@ -4,7 +4,7 @@ import { nextApp, nextHandler } from "../next.utils";
 import * as trpcExpress from "@trpc/server/adapters/express";
 import { appRouter } from "./trpc";
 import { inferAsyncReturnType } from "@trpc/server";
-import bodyParser from "body-parser";
+import bodyParser, { type OptionsJson } from "body-parser";
 import { IncomingMessage } from "http";
 import { stripeWebhookHandler } from "../lib/webhooks";
 import nextBuild from "next/dist/build";
@@ -25,13 +25,16 @@ const createContext = ({
 
 export type ExpressContext = inferAsyncReturnType<typeof createContext>;
 export type WebhookRequest = IncomingMessage & { rawBody: Buffer };
+type ExtendedOptionsJson = OptionsJson & { timeout?: number };
 
 const start = async () => {
   const webhookMiddleware = bodyParser.json({
     verify: (req: WebhookRequest, _, buffer) => {
       req.rawBody = buffer;
     },
-  });
+    limit: "10mb",
+    timeout: 10000, // 10 seconds
+  } as ExtendedOptionsJson);
 
   app.post("/api/webhooks/stripe", webhookMiddleware, stripeWebhookHandler);
 
