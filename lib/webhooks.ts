@@ -18,12 +18,14 @@ export const stripeWebhookHandler = async (
   const signature = req.headers["stripe-signature"] || "";
 
   let event;
+
   try {
     event = stripe.webhooks.constructEvent(
       body,
       signature,
       process.env.STRIPE_WEBHOOK_SECRET || "",
     );
+    console.log(event);
   } catch (err) {
     return res
       .status(400)
