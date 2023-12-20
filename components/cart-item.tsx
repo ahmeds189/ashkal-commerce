@@ -10,7 +10,7 @@ import { Badge } from "./ui/badge";
 type Props = {
   product: Product;
   downloadUrl?: string;
-  allowdToDownload: boolean;
+  allowdToDownload?: boolean;
 };
 
 export default function CartItem({
